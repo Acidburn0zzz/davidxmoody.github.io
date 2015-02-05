@@ -574,3 +574,97 @@ blockquote {
   padding-left: 1em;
   font-style: italic
 }
+@media print {
+  .site-header,
+  .site-footer,
+  .push {
+    display: none
+  }
+  .wrapper {
+    margin-bottom: 0
+  }
+  .content {
+    max-width: 555px;
+    padding-bottom: 0
+  }
+  .page-break {
+    page-break-after: always
+  }
+  body {
+    font-size: 13.5px;
+    line-height: 20.25px
+  }
+  pre {
+    white-space: normal;
+    font-size: 13.5px;
+    line-height: 20.25px;
+    margin-top: 0px;
+    margin-bottom: 20.25px
+  }
+  pre pre {
+    white-space: pre;
+    margin: 0
+  }
+  p,
+  ul,
+  ol,
+  blockquote {
+    font-size: 13.5px;
+    line-height: 20.25px;
+    margin-top: 0px;
+    margin-bottom: 20.25px
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 40.5px;
+    margin-top: 40.5px;
+    margin-bottom: 20.25px
+  }
+  h2 {
+    font-size: 23px;
+    line-height: 40.5px;
+    margin-top: 20.25px;
+    margin-bottom: 20.25px
+  }
+  h3 {
+    font-size: 18px;
+    line-height: 20.25px;
+    margin-top: 20.25px;
+    margin-bottom: 20.25px
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 13.5px;
+    line-height: 20.25px;
+    margin-top: 20.25px;
+    margin-bottom: 20.25px
+  }
+  hr {
+    border: 1px solid;
+    margin: -1px 0
+  }
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    margin-top: 0;
+    margin-bottom: 0
+  }
+  b,
+  strong,
+  em,
+  small,
+  code {
+    line-height: 1
+  }
+  sup,
+  sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em
+  }
+  sub {
+    top: 0.4em
+  }
+}
