@@ -568,6 +568,11 @@ table td {
 table th {
   font-weight: bold
 }
+table::after {
+  content: "";
+  display: block;
+  height: 27px
+}
 blockquote {
   margin-left: 5%;
   border-left: 3px solid #B52626;
