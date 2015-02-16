@@ -596,15 +596,15 @@ blockquote {
     page-break-after: always
   }
   body {
-    font-size: 13.5px;
-    line-height: 20.25px
+    font-size: 13px;
+    line-height: 19.5px
   }
   pre {
     white-space: normal;
-    font-size: 13.5px;
-    line-height: 20.25px;
+    font-size: 13px;
+    line-height: 19.5px;
     margin-top: 0px;
-    margin-bottom: 20.25px
+    margin-bottom: 19.5px
   }
   pre pre {
     white-space: pre;
@@ -614,36 +614,36 @@ blockquote {
   ul,
   ol,
   blockquote {
-    font-size: 13.5px;
-    line-height: 20.25px;
+    font-size: 13px;
+    line-height: 19.5px;
     margin-top: 0px;
-    margin-bottom: 20.25px
+    margin-bottom: 19.5px
   }
   h1 {
-    font-size: 30px;
-    line-height: 40.5px;
-    margin-top: 40.5px;
-    margin-bottom: 20.25px
+    font-size: 29px;
+    line-height: 39px;
+    margin-top: 39px;
+    margin-bottom: 19.5px
   }
   h2 {
-    font-size: 23px;
-    line-height: 40.5px;
-    margin-top: 20.25px;
-    margin-bottom: 20.25px
+    font-size: 22px;
+    line-height: 39px;
+    margin-top: 19.5px;
+    margin-bottom: 19.5px
   }
   h3 {
-    font-size: 18px;
-    line-height: 20.25px;
-    margin-top: 20.25px;
-    margin-bottom: 20.25px
+    font-size: 17px;
+    line-height: 19.5px;
+    margin-top: 19.5px;
+    margin-bottom: 19.5px
   }
   h4,
   h5,
   h6 {
-    font-size: 13.5px;
-    line-height: 20.25px;
-    margin-top: 20.25px;
-    margin-bottom: 20.25px
+    font-size: 13px;
+    line-height: 19.5px;
+    margin-top: 19.5px;
+    margin-bottom: 19.5px
   }
   hr {
     border: 1px solid;
