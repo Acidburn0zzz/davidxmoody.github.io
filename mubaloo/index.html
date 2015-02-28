@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="formApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Mubaloo Dev Test Form</title>
+
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="js/angular.js"></script>
+  <script src="js/angular-animate.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body ng-controller="FormCtrl">
+  <div class="form-container" ng-switch="stage">
+
+    <form ng-switch-when="1" name="stage1" ng-submit="nextStage()" novalidate>
+      <h2>Hi there, please enter your details</h2>
+
+      Title: <select ng-model="user.title" ng-options="title for title in titles" required>
+        <!-- The first option is a placeholder only, not a valid option -->
+        <option value="">--</option>
+      </select> <br>
+
+      First name:    <input type="text" ng-model="user.firstName"   required> <br> 
+      Last name:     <input type="text" ng-model="user.lastName"    required> <br> 
+      Date of birth: <input type="date" ng-model="user.dateOfBirth" required> <br>
+
+      <!-- Submit button is disabled until all required fields are entered -->
+      <input type="submit" value="Next" ng-disabled="stage1.$invalid"> <br>
+    </form>
+
+    <form ng-switch-when="2" name="stage2" ng-submit="nextStage()" novalidate>
+      <h2>Please enter your current <br> location and time</h2>
+
+      Location:      <input type="text"           ng-model="user.currentLocation" required> <br>
+      Date and time: <input type="datetime-local" ng-model="user.currentDatetime" required> <br>
+
+      <input type="submit" value="Next" ng-disabled="stage2.$invalid"> <br>
+    </form>
+
+    <form ng-switch-when="3" ng-submit="submit()" novalidate>
+      <h2>Anything else to add?</h2>
+
+      <textarea ng-model="user.feedback"></textarea> <br>
+
+      <input type="submit" value="Submit"> <br>
+    </form>
+
+    <div ng-switch-when="4">
+      <h2>Thank you!</h2>
+
+      <p>
+        The following information has been submitted to 
+        <a href="{{ requestBinURL }}?inspect">{{ requestBinURL }}</a>
+      </p>
+
+      <pre>{{getUserData()}}</pre>
+    </div>
+
+  </div>
+</body>
+</html>
