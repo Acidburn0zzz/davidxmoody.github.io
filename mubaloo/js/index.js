@@ -2,7 +2,7 @@ var app = angular.module('formApp', ['ngAnimate']);
 
 app.controller('FormCtrl', function($scope, $http) {
 
-  $scope.requestBinURL = 'http://requestb.in/sk1lp1sk';
+  $scope.requestBinURL = 'http://requestb.in/1lxqzn71';
 
   // List of selectable titles
   $scope.titles = [
