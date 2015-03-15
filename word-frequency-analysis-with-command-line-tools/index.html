@@ -24,8 +24,7 @@
       <article>
         <header>
           <h1>Word frequency analysis with command line tools</h1>
-          <p><em>Feb 20, 2015</em>
-          </p>
+          <p><em>Feb 20, 2015</em></p>
         </header>
 
         <p>I have previously written about <a href="/writing-speeds/">writing speeds</a>.
@@ -36,7 +35,6 @@
           but I wasn&#39;t happy with them. Instead, I wanted to analyse my own
           writing to find my most commonly used words and phrases. </p>
         <!--more-->
-
         <h2 id="a-simple-python-script">A simple Python script</h2>
         <p>A little while ago, I wrote the following Python script to do just that.
           It utilises the <code>Counter</code> object and <code>fileinput</code>          module to simplify the collection process. It also strips out unnecessary
@@ -55,8 +53,7 @@
 
 <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">word_tallies</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
-</pre>
-    </div>
+</pre></div>
 
     </code>
     </pre>
@@ -72,8 +69,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
   tr <span class="s1">&#39;[A-Z]&#39;</span> <span class="s1">&#39;[a-z]&#39;</span> <span class="p">|</span> <span class="se">\</span>
   sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nr <span class="p">|</span> <span class="se">\</span>
   head -n200
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -117,8 +113,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
   awk -- <span class="s1">&#39;prev!=&quot;&quot; { print prev,$0; } { prev=$0; }&#39;</span> <span class="p">|</span> <span class="se">\</span>
   sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nr <span class="p">|</span> <span class="se">\</span>
   head -n200
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -133,8 +128,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
   awk -- <span class="s1">&#39;first!=&quot;&quot;&amp;&amp;second!=&quot;&quot; { print first,second,$0; } { first=second; second=$0; }&#39;</span> <span class="p">|</span> <span class="se">\</span>
   sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -nr <span class="p">|</span> <span class="se">\</span>
   head -n200
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -162,8 +156,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
    <span class="mi">8967</span> <span class="nx">is</span>
    <span class="mi">8535</span> <span class="nx">be</span>
    <span class="mi">8226</span> <span class="nx">but</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -197,8 +190,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
    <span class="mi">3391</span> <span class="nx">it</span> <span class="nx">was</span>
    <span class="mi">3388</span> <span class="nx">of</span> <span class="nx">the</span>
    <span class="mi">3364</span> <span class="k">in</span> <span class="nx">the</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -213,8 +205,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
     <span class="mi">724</span> <span class="k">for</span> <span class="nx">a</span> <span class="nx">walk</span>
     <span class="mi">709</span> <span class="nx">i</span> <span class="nx">don</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">think</span>
     <span class="mi">682</span> <span class="nx">i</span> <span class="nx">think</span> <span class="nx">the</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -228,7 +219,7 @@ tr -sc <span class="s2">&quot;[A-Z][a-z][0-9]&#39;&quot;</span> <span class="s1"
   <footer class="site-footer">
     <p>
       <br>
-      <a href="http://davidxmoody.com/feed.xml">RSS</a> |
+      <a href="/feed.xml">RSS</a> |
       <a href="https://github.com/davidxmoody">GitHub</a> |
       <a href="mailto:david@davidxmoody.com">Email</a>
     </p>

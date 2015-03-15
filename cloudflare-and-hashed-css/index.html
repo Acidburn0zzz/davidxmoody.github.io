@@ -24,8 +24,7 @@
       <article>
         <header>
           <h1>CloudFlare and hashed CSS</h1>
-          <p><em>Feb 2, 2015</em>
-          </p>
+          <p><em>Feb 2, 2015</em></p>
         </header>
 
         <p>One of the main advantages of static sites is supposed to be faster load
@@ -37,7 +36,6 @@
           with a DNS <code>A</code> record. I suggest you look at his post for more
           details. </p>
         <!--more-->
-
         <h2 id="cloudflare">CloudFlare</h2>
         <p>Anyway, his solution was to use <a href="https://www.cloudflare.com/">CloudFlare</a>          and CNAME flattening. </p>
         <p>To be honest, I had looked into CloudFlare before and completely misunderstood
@@ -54,10 +52,8 @@
         <p>Using them also has the convenient side effect of eliminating that annoying
           302 redirect. Here is a screenshot from <a href="http://www.webpagetest.org/">http://www.webpagetest.org/</a>          of this blog&#39;s performance before and after switching to CloudFlare&#39;s
           DNS:</p>
-        <p><img src="/images/cloudflare-and-hashed-css/before.png" alt="Before: 3.371s first view, 0.088s repeat view">
-        </p>
-        <p><img src="/images/cloudflare-and-hashed-css/after.png" alt="After: 0.289s first view, 0.089s repeat view">
-        </p>
+        <p><img src="/images/cloudflare-and-hashed-css/before.png" alt="Before: 3.371s first view, 0.088s repeat view"></p>
+        <p><img src="/images/cloudflare-and-hashed-css/after.png" alt="After: 0.289s first view, 0.089s repeat view"></p>
         <h2 id="css-caching">CSS caching</h2>
         <p>Another benefit of using CloudFlare is that it gives me more control over
           HTTP caching (using Page Rules).</p>
@@ -92,15 +88,13 @@
   <span class="p">]))</span>
 
 <span class="c1">// ...</span>
-</pre>
-    </div>
+</pre></div>
 
     </code>
     </pre>
     <p>Then in my <code>templates/default.html</code> file I have:</p>
     <pre><code class="lang-html"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/{{fingerprint.[css/main.css]}}&quot;</span><span class="nt">&gt;</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -117,7 +111,7 @@
   <footer class="site-footer">
     <p>
       <br>
-      <a href="http://davidxmoody.com/feed.xml">RSS</a> |
+      <a href="/feed.xml">RSS</a> |
       <a href="https://github.com/davidxmoody">GitHub</a> |
       <a href="mailto:david@davidxmoody.com">Email</a>
     </p>

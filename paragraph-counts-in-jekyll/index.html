@@ -24,8 +24,7 @@
       <article>
         <header>
           <h1>Paragraph counts in jekyll</h1>
-          <p><em>Aug 15, 2014</em>
-          </p>
+          <p><em>Aug 15, 2014</em></p>
         </header>
 
         <p>I&#39;m a big fan of <a href="http://arstechnica.com/">Ars Technica</a>.
@@ -40,7 +39,6 @@
           <li>It lets you know how long the entire article will be</li>
         </ul>
         <!--more-->
-
         <p>I&#39;ve seen many <em>bad</em> approaches to the same problem. Some feeds
           contain very limited information, frequently just the first paragraph
           of the article. I feel that the first paragraph alone is not usually enough
@@ -54,8 +52,7 @@
           empty lines instead of the default of one. </p>
         <pre><code class="lang-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">excerpt_separator</span><span class="p-Indicator">:</span> <span class="s">&quot;\n\n&quot;</span>    <span class="c1"># Default</span>
 <span class="l-Scalar-Plain">excerpt_separator</span><span class="p-Indicator">:</span> <span class="s">&quot;\n\n\n&quot;</span>  <span class="c1"># My version</span>
-</pre>
-    </div>
+</pre></div>
 
     </code>
     </pre>
@@ -76,8 +73,7 @@
 {% assign excerpt_paragraphs = post.excerpt | split: &#39;<span class="nt">&lt;p&gt;</span>&#39; | size | minus: 1 %}
 {% assign remaining_paragraphs = total_paragraphs | minus: excerpt_paragraphs %}
 <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ post.url }}&quot;</span><span class="nt">&gt;</span>Read {{ remaining_paragraphs }} remaining paragraphs...<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -94,8 +90,7 @@
   View post on separate page
   {% endif %}
 <span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -110,7 +105,7 @@
   <footer class="site-footer">
     <p>
       <br>
-      <a href="http://davidxmoody.com/feed.xml">RSS</a> |
+      <a href="/feed.xml">RSS</a> |
       <a href="https://github.com/davidxmoody">GitHub</a> |
       <a href="mailto:david@davidxmoody.com">Email</a>
     </p>

@@ -24,8 +24,7 @@
       <article>
         <header>
           <h1>Host any static site with GitHub Pages</h1>
-          <p><em>Jan 26, 2015</em>
-          </p>
+          <p><em>Jan 26, 2015</em></p>
         </header>
 
         <p><a href="https://pages.github.com/">GitHub Pages</a> is pretty awesome.
@@ -38,12 +37,10 @@
           any plugins or code you want) and still host it on GitHub Pages. It&#39;s
           pretty simple although there are a few caveats. </p>
         <!--more-->
-
         <h2 id="generated-html-should-go-in-master">Generated HTML should go in master</h2>
         <p>For a user site (e.g. <a href="http://davidxmoody.com/">davidxmoody.github.io</a>),
           GitHub expects the generated HTML/CSS/JavaScript to be placed in the root
-          of the master branch. <em>(Project sites should use the gh-pages branch.)</em>
-        </p>
+          of the master branch. <em>(Project sites should use the gh-pages branch.)</em></p>
         <p>Additionally, if you have a custom domain name, the <code>CNAME</code> file
           must also go in the root of master. It&#39;s only a minor point but you
           do have to make sure that the <code>CNAME</code> file gets copied across
@@ -51,8 +48,7 @@
         <p>It&#39;s slightly awkward to get this all to work. I wanted a way to have
           both the source and generated site available on GitHub in the same repository.
           There are a few options available.</p>
-        <p><em>[Edit: Since writing this post, I&#39;ve added a <a href="#option-four-separating-source-and-build">fourth option which you might want to skip to</a>. It solves the problem of having source and build files committed to the same branch.]</em>
-        </p>
+        <p><em>[Edit: Since writing this post, I&#39;ve added a <a href="#option-four-separating-source-and-build">fourth option which you might want to skip to</a>. It solves the problem of having source and build files committed to the same branch.]</em></p>
         <h2 id="option-one-two-local-repos">Option one: Two local repos</h2>
         <p>One approach is to have two separate repositories on your development machine.
           One for the actual source and one for the generated site. See <a href="http://charliepark.org/jekyll-with-plugins/">this blog post</a>          for a rough guide. </p>
@@ -74,8 +70,7 @@ git checkout -b master
 git filter-branch --subdirectory-filter _site/ -f
 git checkout <span class="nb">source</span>
 git push --all origin
-</pre>
-    </div>
+</pre></div>
 
     </code>
     </pre>
@@ -99,8 +94,7 @@ git push --all origin
     <p>Here&#39;s the script:</p>
     <pre><code class="lang-bash"><div class="highlight"><pre>git subtree push --squash --prefix _site/ . master
 git push --all origin
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -154,8 +148,7 @@ git reset
 
 <span class="c"># Push both branches to GitHub</span>
 git push --all origin
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -175,7 +168,7 @@ git push --all origin
   <footer class="site-footer">
     <p>
       <br>
-      <a href="http://davidxmoody.com/feed.xml">RSS</a> |
+      <a href="/feed.xml">RSS</a> |
       <a href="https://github.com/davidxmoody">GitHub</a> |
       <a href="mailto:david@davidxmoody.com">Email</a>
     </p>

@@ -24,8 +24,7 @@
       <article>
         <header>
           <h1>Vim auto-capitalisation</h1>
-          <p><em>Aug 29, 2014</em>
-          </p>
+          <p><em>Aug 29, 2014</em></p>
         </header>
 
         <p>Continuing in the same theme as my <a href="/better-vim-abbreviations/">last post</a>,
@@ -36,7 +35,6 @@
           I feel that a lot of unnecessary key-strokes are wasted on the shift keys.
           It also stresses the little fingers and twists the wrists.</p>
         <!--more-->
-
         <h2 id="the-scripts">The scripts</h2>
         <p>There is surprisingly little information available about this. The only
           decent thing I&#39;ve ever found has been <a href="http://superuser.com/questions/737130/automatically-capitalize-the-first-letter-of-sentence-in-vim">this superuser question/answer</a>.
@@ -44,8 +42,7 @@
         <pre><code class="lang-vim"><div class="highlight"><pre><span class="k">for</span> char <span class="k">in</span> split<span class="p">(</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">,</span> <span class="s1">&#39;\zs&#39;</span><span class="p">)</span>
     exe printf<span class="p">(</span><span class="s2">&quot;inoremap &lt;expr&gt; %s search(&#39;[.!?]\\_s\\+\\%%#&#39;, &#39;bcnw&#39;) ? &#39;%s&#39; : &#39;%s&#39;&quot;</span><span class="p">,</span> char<span class="p">,</span> toupper<span class="p">(</span>char<span class="p">),</span> char<span class="p">)</span>
 <span class="k">endfor</span>
-</pre>
-    </div>
+</pre></div>
 
     </code>
     </pre>
@@ -59,8 +56,7 @@
     <span class="k">au</span><span class="p">!</span>
     <span class="k">autocmd</span> <span class="nb">InsertCharPre</span> * <span class="k">if</span> search<span class="p">(</span><span class="s1">&#39;\v(%^|[.!?]\_s)\_s*%#&#39;</span><span class="p">,</span> <span class="s1">&#39;bcnw&#39;</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">|</span> <span class="k">let</span> <span class="k">v</span>:char <span class="p">=</span> toupper<span class="p">(</span><span class="k">v</span>:char<span class="p">)</span> <span class="p">|</span> <span class="k">endif</span>
 augroup END
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -86,8 +82,7 @@ augroup END
     <span class="k">au</span><span class="p">!</span>
     <span class="k">autocmd</span> <span class="nb">InsertCharPre</span> * <span class="k">if</span> search<span class="p">(</span><span class="s1">&#39;\v(%^|[.!?]\_s+|\_^\-\s|\_^title\:\s|\n\n)%#&#39;</span><span class="p">,</span> <span class="s1">&#39;bcnw&#39;</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">|</span> <span class="k">let</span> <span class="k">v</span>:char <span class="p">=</span> toupper<span class="p">(</span><span class="k">v</span>:char<span class="p">)</span> <span class="p">|</span> <span class="k">endif</span>
 augroup END
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -107,8 +102,7 @@ augroup END
     <li><code>%#</code> matches the cursor position</li>
     <li>The <code>&#39;b&#39;</code> option means search backwards</li>
   </ul>
-  <p><em>[Edit on 2014-09-29: I somehow forgot to add Markdown headers to the list of capitalisation contexts. I will leave that as an exercise for the reader.]</em>
-  </p>
+  <p><em>[Edit on 2014-09-29: I somehow forgot to add Markdown headers to the list of capitalisation contexts. I will leave that as an exercise for the reader.]</em></p>
   <h2 id="putting-it-all-together">Putting it all together</h2>
   <p>Combining this with the rest of my configuration options gives the following section
     of my <code>.vimrc</code> file:</p>
@@ -141,8 +135,7 @@ endfu
 <span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.mkd <span class="k">call</span> WordProcessorMode<span class="p">()</span>
 <span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.md <span class="k">call</span> WordProcessorMode<span class="p">()</span>
 <span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> diary<span class="p">-</span>*.txt <span class="k">call</span> WordProcessorMode<span class="p">()</span>
-</pre>
-  </div>
+</pre></div>
 
   </code>
   </pre>
@@ -157,7 +150,7 @@ endfu
   <footer class="site-footer">
     <p>
       <br>
-      <a href="http://davidxmoody.com/feed.xml">RSS</a> |
+      <a href="/feed.xml">RSS</a> |
       <a href="https://github.com/davidxmoody">GitHub</a> |
       <a href="mailto:david@davidxmoody.com">Email</a>
     </p>
