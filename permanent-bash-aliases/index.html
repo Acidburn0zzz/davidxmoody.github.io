@@ -2,39 +2,36 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Permanent Bash aliases</title>
-  <meta name="viewport" content="width=device-width">
-  <meta name="description" content="A blog about programming">
-  <link rel="canonical" href="http://davidxmoody.com/permanent-bash-aliases/">
-  <link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
-  <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Permanent Bash aliases</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="A blog about programming">
+<link rel="canonical" href="http://davidxmoody.com/permanent-bash-aliases/">
+<link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
+<meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
 
 <body>
 
-  <div class="wrapper">
-    <header class="site-header">
-      <h1><a href="/">David Moody</a></h1>
-      <p>A blog about programming</p>
-    </header>
+<div class="wrapper">
+<header class="site-header">
+<h1><a href="/">David Moody</a></h1>
+<p>A blog about programming</p>
+</header>
 
-    <div class="content">
-      <article>
-        <header>
-          <h1>Permanent Bash aliases</h1>
-          <p><em>Sep 3, 2014</em></p>
-        </header>
+<div class="content">
+<article>
+<header>
+<h1>Permanent Bash aliases</h1>
+<p><em>Sep 3, 2014</em></p>
+</header>
 
-        <p>This post will introduce a handy little Bash tip. I created it over a year
-          ago but many other people have already done similar things.</p>
-        <p>Bash aliases are incredibly convenient. If, for some reason, you don&#39;t
-          already use them then you should <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions">read this tutorial</a>.
-          </p>
-        <!--more-->
-        <p>Anyway, on to the function:</p>
-        <pre><code class="lang-bash"><div class="highlight"><pre>mkalias<span class="o">()</span> <span class="o">{</span>
+<p>This post will introduce a handy little Bash tip. I created it over a year ago but many other people have already done similar things.</p>
+<p>Bash aliases are incredibly convenient. If, for some reason, you don&#39;t already use them then you should <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions">read this tutorial</a>. </p>
+<!--more-->
+<p>Anyway, on to the function:</p>
+<pre><code class="lang-bash"><div class="highlight"><pre>mkalias<span class="o">()</span> <span class="o">{</span>
   <span class="c"># Flatten arguments into one string</span>
   <span class="nb">local </span><span class="nv">full_string</span><span class="o">=</span><span class="nv">$*</span>
 
@@ -52,13 +49,10 @@
 <span class="o">}</span>
 </pre></div>
 
-    </code>
-    </pre>
-    <p>This allows you to create a &quot;permanent&quot; alias which gets added to
-      your <code>~/.bash_aliases</code> file. It has a few other features. It prints
-      out the alias (as interpreted by Bash) so you can check that nothing went
-      wrong. It also allows you to omit quotes in many circumstances. </p>
-    <pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">hello</span><span class="o">=</span><span class="nb">echo </span>hello world  <span class="c"># Quotes optional</span>
+</code>
+</pre>
+<p>This allows you to create a &quot;permanent&quot; alias which gets added to your <code>~/.bash_aliases</code> file. It has a few other features. It prints out the alias (as interpreted by Bash) so you can check that nothing went wrong. It also allows you to omit quotes in many circumstances. </p>
+<pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">hello</span><span class="o">=</span><span class="nb">echo </span>hello world  <span class="c"># Quotes optional</span>
 <span class="go">alias hello=&#39;echo hello world&#39;</span>
 <span class="gp">$</span> hello
 <span class="go">hello world</span>
@@ -77,14 +71,11 @@
 <span class="go">hello world</span>
 </pre></div>
 
-  </code>
-  </pre>
-  <p>The function can still fail if you use the wrong syntax (e.g. by putting whitespace
-    around the <code>=</code> character). It would also be nice to find a way to
-    share aliases between <em>already running Bash instances</em>. </p>
-  <p>One final tip, if you create an alias that &quot;overwrites&quot; another command,
-    you can precede it with a backslash to run the original command.</p>
-  <pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">ls</span><span class="o">=</span>ls -CF
+</code>
+</pre>
+<p>The function can still fail if you use the wrong syntax (e.g. by putting whitespace around the <code>=</code> character). It would also be nice to find a way to share aliases between <em>already running Bash instances</em>. </p>
+<p>One final tip, if you create an alias that &quot;overwrites&quot; another command, you can precede it with a backslash to run the original command.</p>
+<pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">ls</span><span class="o">=</span>ls -CF
 <span class="go">alias ls=&#39;ls -CF&#39;</span>
 <span class="gp">$</span> ls  <span class="c"># Notice trailing slashes on directories</span>
 <span class="go">CNAME       _config.yml  _ideas.md  _posts/  _site/  feed.xml  index.html</span>
@@ -94,28 +85,28 @@
 <span class="go">README.md  _drafts      _layouts   _sass    css    images</span>
 </pre></div>
 
-  </code>
-  </pre>
+</code>
+</pre>
 
-  </article>
+</article>
 
-  </div>
+</div>
 
-  <div class="push"></div>
-  </div>
+<div class="push"></div>
+</div>
 
-  <footer class="site-footer">
-    <p>
-      <br>
-      <a href="/feed.xml">RSS</a> |
-      <a href="https://github.com/davidxmoody">GitHub</a> |
-      <a href="mailto:david@davidxmoody.com">Email</a>
-    </p>
-    <p>
-      This blog is available under a
-      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
-    </p>
-  </footer>
+<footer class="site-footer">
+<p>
+<br>
+<a href="/feed.xml">RSS</a> |
+<a href="https://github.com/davidxmoody">GitHub</a> |
+<a href="mailto:david@davidxmoody.com">Email</a>
+</p>
+<p>
+This blog is available under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
+</p>
+</footer>
 
 </body>
 
