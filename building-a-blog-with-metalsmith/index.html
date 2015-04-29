@@ -7,7 +7,7 @@
 <title>Building a blog with Metalsmith</title>
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
-<link rel="canonical" href="http://davidxmoody.com/building-a-blog-with-metalsmith/">
+<link rel="canonical" href="https://davidxmoody.com/building-a-blog-with-metalsmith/">
 <link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
@@ -60,7 +60,7 @@
   <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">data</span> <span class="o">=</span> <span class="nx">files</span><span class="p">[</span><span class="s1">&#39;feed.xml&#39;</span><span class="p">];</span>
     <span class="nx">data</span><span class="p">.</span><span class="nx">contents</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">contents</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
-        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(src|href)=&quot;\//g</span><span class="p">,</span> <span class="s1">&#39;$1=&quot;http://davidxmoody.com/&#39;</span><span class="p">));</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(src|href)=&quot;\//g</span><span class="p">,</span> <span class="s1">&#39;$1=&quot;https://davidxmoody.com/&#39;</span><span class="p">));</span>
   <span class="p">})</span>
 </pre></div>
 

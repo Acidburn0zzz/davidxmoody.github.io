@@ -7,7 +7,7 @@
 <title>Host any static site with GitHub Pages</title>
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
-<link rel="canonical" href="http://davidxmoody.com/host-any-static-site-with-github-pages/">
+<link rel="canonical" href="https://davidxmoody.com/host-any-static-site-with-github-pages/">
 <link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
@@ -32,7 +32,7 @@
 <p>There is an easy way around this. You can build the site locally (using any plugins or code you want) and still host it on GitHub Pages. It&#39;s pretty simple although there are a few caveats. </p>
 <!--more-->
 <h2 id="generated-html-should-go-in-master">Generated HTML should go in master</h2>
-<p>For a user site (e.g. <a href="http://davidxmoody.com/">davidxmoody.github.io</a>), GitHub expects the generated HTML/CSS/JavaScript to be placed in the root of the master branch. <em>(Project sites should use the gh-pages branch.)</em></p>
+<p>For a user site (e.g. <a href="https://davidxmoody.com/">davidxmoody.github.io</a>), GitHub expects the generated HTML/CSS/JavaScript to be placed in the root of the master branch. <em>(Project sites should use the gh-pages branch.)</em></p>
 <p>Additionally, if you have a custom domain name, the <code>CNAME</code> file must also go in the root of master. It&#39;s only a minor point but you do have to make sure that the <code>CNAME</code> file gets copied across to you build directory when you build your site. </p>
 <p>It&#39;s slightly awkward to get this all to work. I wanted a way to have both the source and generated site available on GitHub in the same repository. There are a few options available.</p>
 <p><em>[Edit: Since writing this post, I&#39;ve added a <a href="#option-four-separating-source-and-build">fourth option which you might want to skip to</a>. It solves the problem of having source and build files committed to the same branch.]</em></p>
