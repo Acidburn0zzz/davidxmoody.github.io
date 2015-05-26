@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
 <link rel="canonical" href="https://davidxmoody.com/creating-a-style-for-this-blog/">
-<link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
+<link rel="stylesheet" href="/css/main-2230ce327c6db30770a69ecc9bbc545d.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
 
@@ -26,7 +26,7 @@
 <h1>Creating a style for this blog</h1>
 <p><em>Aug 13, 2014</em></p>
 </header>
-
+<div>
 <p>I didn&#39;t want to use an existing template for this blog. As a web programmer/designer, it would feel wrong not to make my own. </p>
 <p>However, I&#39;m not an artist. I&#39;ve struggled with creating visually attractive content in the past. For my last project, <a href="http://professorp.co.uk/">professorp.co.uk</a>, I opted to use the default Bootstrap theme. I just wanted to get something up and running quickly.</p>
 <p>This post will describe some of the things I&#39;ve learned while creating this blog. </p>
@@ -39,15 +39,12 @@
 <h2 id="colours">Colours</h2>
 <p>I did want my own colour scheme though. Alas, choosing a colour scheme is no simple task. I used the excellent website <a href="http://www.paletton.com/">paletton.com</a> to choose <a href="http://www.paletton.com/#uid=1000u0kleqtbzEKgVuIpcmGtdhZ">this colour scheme</a> from the presets. </p>
 <p>I copy-pasted the RGB codes into my Sass variables. This way, I can change my colour scheme very easily (as long as I don&#39;t want to go beyond a simple monochromatic scheme).</p>
-<pre><code class="lang-scss"><div class="highlight"><pre><span class="nv">$color-base</span><span class="o">:</span> <span class="mh">#D34747</span><span class="p">;</span>
-<span class="nv">$color-light</span><span class="o">:</span> <span class="mh">#F57373</span><span class="p">;</span>
-<span class="nv">$color-lighter</span><span class="o">:</span> <span class="mh">#FFA3A3</span><span class="p">;</span>
-<span class="nv">$color-dark</span><span class="o">:</span> <span class="mh">#B52626</span><span class="p">;</span>
-<span class="nv">$color-darker</span><span class="o">:</span> <span class="mh">#8F0C0C</span><span class="p">;</span>
-</pre></div>
-
-</code>
-</pre>
+<pre><code class="lang-scss"><span class="hljs-variable">$color-base</span><span class="hljs-value">: <span class="hljs-hexcolor">#D34747</span>;</span>
+<span class="hljs-variable">$color-light</span><span class="hljs-value">: <span class="hljs-hexcolor">#F57373</span>;</span>
+<span class="hljs-variable">$color-lighter</span><span class="hljs-value">: <span class="hljs-hexcolor">#FFA3A3</span>;</span>
+<span class="hljs-variable">$color-dark</span><span class="hljs-value">: <span class="hljs-hexcolor">#B52626</span>;</span>
+<span class="hljs-variable">$color-darker</span><span class="hljs-value">: <span class="hljs-hexcolor">#8F0C0C</span>;</span>
+</code></pre>
 <h2 id="sticky-footer">Sticky footer</h2>
 <p>I wanted a footer in a similar style to the header. A banner of colour with some simple text. That wasn&#39;t too tricky and I also decided to put a Creative Commons license in there too. </p>
 <p>I didn&#39;t like how it floated half way up shorter pages though. A footer half way up the page isn&#39;t really a footer after all. </p>
@@ -62,82 +59,96 @@
 <p>I&#39;m not completely sold on this whole grid idea. For one thing, I notice that most other sites do not align with any kind of grid. Despite that, it&#39;s still pretty good and I decided to use it for my blog. </p>
 <p>At first I simply copy-pasted the generated settings from the Gridlover app. It worked but it also felt very messy. Changing any of the variables would require opening my browser, re-entering the variables, copying the generated CSS and then figuring out exactly what I had to replace in my source files. </p>
 <p>Thankfully, a better solution already exists: <a href="https://github.com/sevenupcan/gridlover-mixin">a Gridlover Mixin on GitHub</a>. Documentation isn&#39;t great but I was able to figure it out eventually. There is one file called <a href="https://github.com/sevenupcan/gridlover-mixin/blob/master/sass/rhythm.sass">rhythm.sass</a> which I copied directly into my Jekyll <code>_sass</code> directory. It contains a <code>rhythm</code> mixin which accepts three arguments. The first is the number of times the scale factor will be multiplied to the font size to produce the new font size. The second and third are the number of empty lines you want before and after the element. You can then <code>@include</code> the rhythm mixin in any other element. Here is an example of how it could be done:</p>
-<pre><code class="lang-scss"><div class="highlight"><pre><span class="c1">// Gridlover variables go here</span>
-<span class="nv">$body-font-size</span><span class="o">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
-<span class="nv">$body-line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="p">;</span>
-<span class="nv">$scale-factor</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.414</span><span class="p">;</span>
-<span class="nv">$computed-line-height</span><span class="o">:</span> <span class="nv">$body-line-height</span> <span class="o">*</span> <span class="nv">$body-font-size</span><span class="p">;</span>
+<pre><code class="lang-scss"><span class="hljs-comment">// Gridlover variables go here</span>
+<span class="hljs-variable">$body-font-size</span><span class="hljs-value">: <span class="hljs-number">18px</span>;</span>
+<span class="hljs-variable">$body-line-height</span><span class="hljs-value">: <span class="hljs-number">1.5</span>;</span>
+<span class="hljs-variable">$scale-factor</span><span class="hljs-value">: <span class="hljs-number">1.414</span>;</span>
+<span class="hljs-variable">$computed-line-height</span><span class="hljs-value">: <span class="hljs-variable">$body-line-height</span> * <span class="hljs-variable">$body-font-size</span>;</span>
 
-<span class="c1">// Import the rhythm mixin</span>
-<span class="k">@import</span> <span class="s1">&#39;</span><span class="s2">rhythm&#39;</span><span class="p">;</span>
+<span class="hljs-comment">// Import the rhythm mixin</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">import</span> <span class="hljs-string">'rhythm'</span>;</span>
 
-<span class="c1">// Paragraphs and lists will not be scaled </span>
-<span class="c1">// and will have one empty line after</span>
-<span class="nt">p</span><span class="o">,</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span> <span class="p">{</span>
-  <span class="k">@include</span><span class="nd"> rhythm</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="hljs-comment">// Paragraphs and lists will not be scaled </span>
+<span class="hljs-comment">// and will have one empty line after</span>
+<span class="hljs-tag">p</span>, <span class="hljs-tag">ul</span>, <span class="hljs-tag">ol</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> rhythm</span>(<span class="hljs-number">0</span>,<span class="hljs-preprocessor"> 0</span>,<span class="hljs-preprocessor"> 1</span>);</span>
+}
 
-<span class="c1">// Level 1 headers will be scaled up three times,</span>
-<span class="c1">// have two empty lines before and one after</span>
-<span class="nt">h1</span> <span class="p">{</span>
-  <span class="k">@include</span><span class="nd"> rhythm</span><span class="p">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="hljs-comment">// Level 1 headers will be scaled up three times,</span>
+<span class="hljs-comment">// have two empty lines before and one after</span>
+<span class="hljs-tag">h1</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> rhythm</span>(<span class="hljs-number">3</span>,<span class="hljs-preprocessor"> 2</span>,<span class="hljs-preprocessor"> 1</span>);</span>
+}
 
-<span class="c1">// Level 2 headers will be scaled up two times, </span>
-<span class="c1">// have one empty line before and one after</span>
-<span class="nt">h2</span> <span class="p">{</span>
-  <span class="k">@include</span><span class="nd"> rhythm</span><span class="p">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="hljs-comment">// Level 2 headers will be scaled up two times, </span>
+<span class="hljs-comment">// have one empty line before and one after</span>
+<span class="hljs-tag">h2</span> {
+  <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> rhythm</span>(<span class="hljs-number">2</span>,<span class="hljs-preprocessor"> 1</span>,<span class="hljs-preprocessor"> 1</span>);</span>
+}
 
-<span class="c1">// And so on for the other headers...</span>
+<span class="hljs-comment">// And so on for the other headers...</span>
 
-<span class="c1">// Also include this bit for sanitation of a </span>
-<span class="c1">// few other elements</span>
-<span class="nt">hr</span> <span class="p">{</span>
-  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span><span class="p">;</span>
-  <span class="na">margin</span><span class="o">:</span> <span class="mi">-1</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">ul</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">ul</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">ol</span> <span class="nt">ul</span> <span class="p">{</span>
-  <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">b</span><span class="o">,</span> <span class="nt">strong</span><span class="o">,</span> <span class="nt">em</span><span class="o">,</span> <span class="nt">small</span><span class="o">,</span> <span class="nt">code</span> <span class="p">{</span>
-  <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">sup</span><span class="o">,</span> <span class="nt">sub</span> <span class="p">{</span>
-  <span class="na">vertical-align</span><span class="o">:</span> <span class="no">baseline</span><span class="p">;</span>
-  <span class="na">position</span><span class="o">:</span> <span class="no">relative</span><span class="p">;</span>
-  <span class="na">top</span><span class="o">:</span> <span class="mi">-0</span><span class="mf">.4</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">sub</span> <span class="p">{</span>
-  <span class="na">top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.4</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-</code>
-</pre>
+<span class="hljs-comment">// Also include this bit for sanitation of a </span>
+<span class="hljs-comment">// few other elements</span>
+<span class="hljs-tag">hr</span> {
+  <span class="hljs-attribute">border</span><span class="hljs-value">: <span class="hljs-number">1px</span> solid;</span>
+  <span class="hljs-attribute">margin</span><span class="hljs-value">: -<span class="hljs-number">1px</span> <span class="hljs-number">0</span>;</span>
+}
+<span class="hljs-tag">ul</span> <span class="hljs-tag">ul</span>, <span class="hljs-tag">ol</span> <span class="hljs-tag">ol</span>, <span class="hljs-tag">ul</span> <span class="hljs-tag">ol</span>, <span class="hljs-tag">ol</span> <span class="hljs-tag">ul</span> {
+  <span class="hljs-attribute">margin-top</span><span class="hljs-value">: <span class="hljs-number">0</span>;</span>
+  <span class="hljs-attribute">margin-bottom</span><span class="hljs-value">: <span class="hljs-number">0</span>;</span>
+}
+<span class="hljs-tag">b</span>, <span class="hljs-tag">strong</span>, <span class="hljs-tag">em</span>, <span class="hljs-tag">small</span>, <span class="hljs-tag">code</span> {
+  <span class="hljs-attribute">line-height</span><span class="hljs-value">: <span class="hljs-number">1</span>;</span>
+}
+<span class="hljs-tag">sup</span>, <span class="hljs-tag">sub</span> {
+  <span class="hljs-attribute">vertical-align</span><span class="hljs-value">: baseline;</span>
+  <span class="hljs-attribute">position</span><span class="hljs-value">: relative;</span>
+  <span class="hljs-attribute">top</span><span class="hljs-value">: -<span class="hljs-number">0.4em</span>;</span>
+}
+<span class="hljs-tag">sub</span> {
+  <span class="hljs-attribute">top</span><span class="hljs-value">: <span class="hljs-number">0.4em</span>;</span>
+}
+</code></pre>
 <p>To be honest, I&#39;m not completely happy with the grid system. I notice that if you have a header which is just a bit too big to fit in one row, it takes up two rows and has excessive whitespace above and below. </p>
 <p>Still, I like the elegance of the grid system and it&#39;s good enough for now. </p>
-
+</div>
 </article>
-
 </div>
 
 <div class="push"></div>
 </div>
 
 <footer class="site-footer">
-<p>
 <br>
+<p>
 <a href="/feed.xml">RSS</a> |
 <a href="https://github.com/davidxmoody">GitHub</a> |
 <a href="mailto:david@davidxmoody.com">Email</a>
 </p>
 <p>
 This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
 </p>
 </footer>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+								(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+								m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-54505873-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </body>
 

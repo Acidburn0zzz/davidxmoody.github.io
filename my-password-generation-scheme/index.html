@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
 <link rel="canonical" href="https://davidxmoody.com/my-password-generation-scheme/">
-<link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
+<link rel="stylesheet" href="/css/main-2230ce327c6db30770a69ecc9bbc545d.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
 
@@ -26,7 +26,7 @@
 <h1>My password generation scheme</h1>
 <p><em>Aug 25, 2014</em></p>
 </header>
-
+<div>
 <p>I&#39;ve been using computers for a long time. Way back in the days of Windows 95 I had a tremendously insecure password. I think it was <code>1234</code>. I later upgraded to <code>123456</code> and then the (clearly far superior) <code>654321</code>. </p>
 <p>At one point I used my mothers maiden name and later my cat&#39;s name. When I ran across sites that required numbers in the password, I simply added a <code>1</code> to the end.</p>
 <!--more-->
@@ -42,33 +42,50 @@
 <p>You should also avoid including punctuation or variations on words that could be easily confused later on. For example &quot;I am going to staple a battery to this horse&quot; could easily become &quot;<strong>I&#39;m</strong> going to staple a battery to this horse&quot; or &quot;I am going to staple a battery to <strong>a</strong> horse&quot;.</p>
 <h2 id="double-salting">Double salting</h2>
 <p>I have two additions to that system. The first is to choose a sequence of 8 easy to type characters and add it to the start of every password. For example, <code>lkjpoiuu</code>, or something like that. </p>
-<p>Why? As an analogy, consider the practise of <a href="http://en.wikipedia.org/wiki/Salt_(cryptography">password salts</a>). The basic idea is to add on a small amount of random data to each password before hashing it. The random data is then stored along side the hashed password. One of the advantages of this is that, in the event that the entire (hashed) password database gets stolen, cracking the entire list of passwords becomes more time consuming (as you must re-calculate every guess with each different salt). See <a href="http://en.wikipedia.org/wiki/Salt_(cryptography">the Wikipedia article</a>#Benefits) for a much better explanation. </p>
+<p>Why? As an analogy, consider the practice of <a href="http://en.wikipedia.org/wiki/Salt_(cryptography)">password salts</a>. The basic idea is to add on a small amount of random data to each password before hashing it. The random data is then stored along side the hashed password. One of the advantages of this is that, in the event that the entire (hashed) password database gets stolen, cracking the entire list of passwords becomes more time consuming (as you must re-calculate every guess with each different salt). See <a href="http://en.wikipedia.org/wiki/Salt_(cryptography)#Benefits">the Wikipedia article</a> for a much better explanation. </p>
 <p>Similarly, by adding on a constant &quot;random&quot; sequence to every password, you make it much harder for someone with no particular knowledge of you to guess your password. Nobody will stumble across your password with a dictionary attack because your random string will not be in any dictionary. </p>
 <p>Of course, if someone was <em>specifically targeting you</em> and they also knew your &quot;salt&quot; then it would do little good. The purpose is to help protect against <em>untargeted</em> attacks. </p>
 <h2 id="numbers-and-caps">Numbers and caps</h2>
 <p>Additionally, many sites require passwords to contain at least one number and/or at least one capital letter. It can be really annoying to have to remember which passwords require this. </p>
 <p>To get around this, I use the convention of choosing a memorable phrase which contains either the word &quot;to&quot;, &quot;too&quot; or &quot;for&quot;. I replace that word with the corresponding number, <code>2</code> or <code>4</code>. I then <strong>always capitalise the next letter</strong>, without exception. </p>
 <p>By doing this, as long as you can remember the memorable phrase, you will never have to struggle to remember whether it contains numbers or capitals. This also won&#39;t weaken your password (even if somebody knows you are doing it) because the strength of the password lies in the passphrase you chose. </p>
-
+</div>
 </article>
-
 </div>
 
 <div class="push"></div>
 </div>
 
 <footer class="site-footer">
-<p>
 <br>
+<p>
 <a href="/feed.xml">RSS</a> |
 <a href="https://github.com/davidxmoody">GitHub</a> |
 <a href="mailto:david@davidxmoody.com">Email</a>
 </p>
 <p>
 This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
 </p>
 </footer>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+								(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+								m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-54505873-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </body>
 

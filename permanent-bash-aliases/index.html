@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
 <link rel="canonical" href="https://davidxmoody.com/permanent-bash-aliases/">
-<link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
+<link rel="stylesheet" href="/css/main-2230ce327c6db30770a69ecc9bbc545d.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
 
@@ -26,87 +26,101 @@
 <h1>Permanent Bash aliases</h1>
 <p><em>Sep 3, 2014</em></p>
 </header>
-
+<div>
 <p>This post will introduce a handy little Bash tip. I created it over a year ago but many other people have already done similar things.</p>
 <p>Bash aliases are incredibly convenient. If, for some reason, you don&#39;t already use them then you should <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions">read this tutorial</a>. </p>
 <!--more-->
 <p>Anyway, on to the function:</p>
-<pre><code class="lang-bash"><div class="highlight"><pre>mkalias<span class="o">()</span> <span class="o">{</span>
-  <span class="c"># Flatten arguments into one string</span>
-  <span class="nb">local </span><span class="nv">full_string</span><span class="o">=</span><span class="nv">$*</span>
+<pre><code class="lang-bash"><span class="hljs-function"><span class="hljs-title">mkalias</span></span>() {
+  <span class="hljs-comment"># Flatten arguments into one string</span>
+  <span class="hljs-built_in">local</span> full_string=$*
 
-  <span class="c"># Extract the first and last parts</span>
-  <span class="nb">local </span><span class="nv">alias_name</span><span class="o">=</span><span class="k">${</span><span class="nv">full_string</span><span class="p">%%=*</span><span class="k">}</span>
-  <span class="nb">local </span><span class="nv">alias_result</span><span class="o">=</span><span class="k">${</span><span class="nv">full_string</span><span class="p">#*=</span><span class="k">}</span>
+  <span class="hljs-comment"># Extract the first and last parts</span>
+  <span class="hljs-built_in">local</span> <span class="hljs-built_in">alias</span>_name=<span class="hljs-variable">${full_string%%=*}</span>
+  <span class="hljs-built_in">local</span> <span class="hljs-built_in">alias</span>_result=<span class="hljs-variable">${full_string#*=}</span>
 
-  <span class="c"># Construct the new command</span>
-  <span class="nb">local </span><span class="nv">alias_command</span><span class="o">=</span><span class="s2">&quot;alias $alias_name=&#39;$alias_result&#39;&quot;</span>
+  <span class="hljs-comment"># Construct the new command</span>
+  <span class="hljs-built_in">local</span> <span class="hljs-built_in">alias</span>_<span class="hljs-built_in">command</span>=<span class="hljs-string">"alias <span class="hljs-variable">$alias_name</span>='<span class="hljs-variable">$alias_result</span>'"</span>
 
-  <span class="c"># Execute the command, if successful then print </span>
-  <span class="c"># out the alias and add it to ~/.bash_aliases</span>
-  <span class="nb">eval</span> <span class="s2">&quot;$alias_command&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-  <span class="nb">alias</span> <span class="s2">&quot;$alias_name&quot;</span> <span class="p">|</span> tee -a <span class="s2">&quot;$HOME/.bash_aliases&quot;</span>
-<span class="o">}</span>
-</pre></div>
-
-</code>
-</pre>
+  <span class="hljs-comment"># Execute the command, if successful then print </span>
+  <span class="hljs-comment"># out the alias and add it to ~/.bash_aliases</span>
+  <span class="hljs-built_in">eval</span> <span class="hljs-string">"<span class="hljs-variable">$alias_command</span>"</span> &amp;&amp; \
+  <span class="hljs-built_in">alias</span> <span class="hljs-string">"<span class="hljs-variable">$alias_name</span>"</span> | tee <span class="hljs-operator">-a</span> <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.bash_aliases"</span>
+}
+</code></pre>
 <p>This allows you to create a &quot;permanent&quot; alias which gets added to your <code>~/.bash_aliases</code> file. It has a few other features. It prints out the alias (as interpreted by Bash) so you can check that nothing went wrong. It also allows you to omit quotes in many circumstances. </p>
-<pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">hello</span><span class="o">=</span><span class="nb">echo </span>hello world  <span class="c"># Quotes optional</span>
-<span class="go">alias hello=&#39;echo hello world&#39;</span>
-<span class="gp">$</span> hello
-<span class="go">hello world</span>
+<pre><code class="lang-bash">mkalias hello=<span class="hljs-built_in">echo</span> hello world  <span class="hljs-comment"># Quotes optional</span>
+<span class="hljs-comment">#=&gt; alias hello='echo hello world'</span>
 
-<span class="gp">$</span> <span class="nv">RC_DIR</span><span class="o">=</span>~/sync/dotfiles
-<span class="gp">$</span> mkalias <span class="nv">cdrc</span><span class="o">=</span><span class="nb">cd</span> <span class="nv">$RC_DIR</span>  <span class="c"># Probably wrong</span>
-<span class="go">alias cdrc=&#39;cd /home/david/sync/dotfiles&#39;</span>
-<span class="gp">$</span> mkalias <span class="nv">cdrc</span><span class="o">=</span><span class="s1">&#39;cd $RC_DIR&#39;</span>  <span class="c"># Should be quoted</span>
-<span class="go">alias cdrc=&#39;cd $RC_DIR&#39;</span>
+hello
+<span class="hljs-comment">#=&gt; hello world</span>
 
-<span class="gp">$</span> mkalias <span class="nv">lsl</span><span class="o">=</span><span class="s1">&#39;ls | less&#39;</span>  <span class="c"># Must be quoted</span>
-<span class="go">alias lsl=&#39;ls | less&#39;</span>
+RC_DIR=~/sync/dotfiles
 
-<span class="gp">$</span> bash  <span class="c"># Open new shell</span>
-<span class="gp">$</span> hello  <span class="c"># Alias is remembered</span>
-<span class="go">hello world</span>
-</pre></div>
+mkalias cdrc=<span class="hljs-built_in">cd</span> <span class="hljs-variable">$RC_DIR</span>  <span class="hljs-comment"># Probably wrong</span>
+<span class="hljs-comment">#=&gt; alias cdrc='cd /home/david/sync/dotfiles'</span>
 
-</code>
-</pre>
+mkalias cdrc=<span class="hljs-string">'cd $RC_DIR'</span>  <span class="hljs-comment"># Should be quoted</span>
+<span class="hljs-comment">#=&gt; alias cdrc='cd $RC_DIR'</span>
+
+mkalias lsl=<span class="hljs-string">'ls | less'</span>  <span class="hljs-comment"># Must be quoted</span>
+<span class="hljs-comment">#=&gt; alias lsl='ls | less'</span>
+
+bash  <span class="hljs-comment"># Open new shell</span>
+
+hello  <span class="hljs-comment"># Alias is remembered</span>
+<span class="hljs-comment">#=&gt; hello world</span>
+</code></pre>
 <p>The function can still fail if you use the wrong syntax (e.g. by putting whitespace around the <code>=</code> character). It would also be nice to find a way to share aliases between <em>already running Bash instances</em>. </p>
 <p>One final tip, if you create an alias that &quot;overwrites&quot; another command, you can precede it with a backslash to run the original command.</p>
-<pre><code class="lang-console"><div class="highlight"><pre><span class="gp">$</span> mkalias <span class="nv">ls</span><span class="o">=</span>ls -CF
-<span class="go">alias ls=&#39;ls -CF&#39;</span>
-<span class="gp">$</span> ls  <span class="c"># Notice trailing slashes on directories</span>
-<span class="go">CNAME       _config.yml  _ideas.md  _posts/  _site/  feed.xml  index.html</span>
-<span class="go">README.md   _drafts/     _layouts/  _sass/   css/    images/</span>
-<span class="gp">$</span> <span class="se">\l</span>s  <span class="c"># Regular ls behaviour</span>
-<span class="go">CNAME      _config.yml  _ideas.md  _posts   _site  feed.xml  index.html</span>
-<span class="go">README.md  _drafts      _layouts   _sass    css    images</span>
-</pre></div>
+<pre><code class="lang-bash">mkalias ls=ls -CF
+<span class="hljs-comment">#=&gt; alias ls='ls -CF'</span>
 
-</code>
-</pre>
+ls  <span class="hljs-comment"># Notice trailing slashes on directories</span>
+<span class="hljs-comment">#=&gt; CNAME       _config.yml  _ideas.md  _posts/  _site/  feed.xml  index.html</span>
+<span class="hljs-comment">#=&gt; README.md   _drafts/     _layouts/  _sass/   css/    images/</span>
 
+\ls  <span class="hljs-comment"># Regular ls behaviour</span>
+<span class="hljs-comment">#=&gt; CNAME      _config.yml  _ideas.md  _posts   _site  feed.xml  index.html</span>
+<span class="hljs-comment">#=&gt; README.md  _drafts      _layouts   _sass    css    images</span>
+</code></pre>
+</div>
 </article>
-
 </div>
 
 <div class="push"></div>
 </div>
 
 <footer class="site-footer">
-<p>
 <br>
+<p>
 <a href="/feed.xml">RSS</a> |
 <a href="https://github.com/davidxmoody">GitHub</a> |
 <a href="mailto:david@davidxmoody.com">Email</a>
 </p>
 <p>
 This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
 </p>
 </footer>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+								(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+								m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-54505873-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </body>
 

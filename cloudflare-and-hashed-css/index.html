@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="description" content="A blog about programming">
 <link rel="canonical" href="https://davidxmoody.com/cloudflare-and-hashed-css/">
-<link rel="stylesheet" href="/css/main-7910edc4decc7a43c4aff4d2dc05131b.css">
+<link rel="stylesheet" href="/css/main-2230ce327c6db30770a69ecc9bbc545d.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
 </head>
 
@@ -26,7 +26,7 @@
 <h1>CloudFlare and hashed CSS</h1>
 <p><em>Feb 2, 2015</em></p>
 </header>
-
+<div>
 <p>One of the main advantages of static sites is supposed to be faster load times. However, I noticed this blog was still taking longer than expected to load. </p>
 <p>I discovered <a href="http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/">this post by David Ensinger</a> in which he describes the same problem. I&#39;ve learned a lot from his other posts and we appear to have pretty similar setups. The problem he describes is a time consuming 302 redirect caused by using GitHub Pages with a DNS <code>A</code> record. I suggest you look at his post for more details. </p>
 <!--more-->
@@ -41,56 +41,70 @@
 <h2 id="css-caching">CSS caching</h2>
 <p>Another benefit of using CloudFlare is that it gives me more control over HTTP caching (using Page Rules).</p>
 <p>Every time you visit a new page on this blog, it used to require <strong>two round trips</strong>. One for the HTML and one to check that the <code>/css/main.css</code> file had not changed. In practice, it wasn&#39;t too bad given that the server almost always sends a 304 Not Modified response back. However, I still wanted to eliminate the extra round trip. </p>
-<p>One common way to do this is to insert a hash of the contents of the CSS file into the filename. For example, <code>main.css</code> might become <code>main-281a5c8d54ffb9364e6bfea48573c761.css</code>. You then also have to send that CSS file with a very large <code>max-age</code> HTTP Cache-Control response header so the browser knows that it will be valid forever. </p>
+<p>One common way to do this is to insert a hash of the contents of the CSS file into the filename. For example, <code>main.css</code> might become:</p>
+<pre><code>main-281a5c8d54ffb9364e6bfea48573c761.css
+</code></pre>
+<p>You also have to send that CSS file with a very large <code>max-age</code> HTTP Cache-Control response header so the browser knows that it will be valid forever. </p>
 <p>This is similar to the way that HTTP determines freshness. However, instead of sending a validator back to the server, the validator is embedded in the HTML which references the CSS file. </p>
 <h2 id="metalsmith-fingerprint">metalsmith-fingerprint</h2>
 <p>There is already a handy <a href="https://github.com/christophercliff/metalsmith-fingerprint">Metalsmith plugin for this</a>. Here&#39;s a sketch of how I use it:</p>
-<pre><code class="lang-js"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fingerprint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;metalsmith-fingerprint&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">ignore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;metalsmith-ignore&#39;</span><span class="p">);</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> fingerprint = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-fingerprint'</span>);
+<span class="hljs-keyword">var</span> ignore = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-ignore'</span>);
 
-<span class="c1">// ...</span>
+<span class="hljs-comment">// ...</span>
 
-  <span class="c1">// Insert the hash of the file into its filename</span>
-  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">fingerprint</span><span class="p">({</span>
-    <span class="nx">pattern</span><span class="o">:</span> <span class="s1">&#39;css/main.css&#39;</span>
-  <span class="p">}))</span>
-  <span class="c1">// Forget the original file</span>
-  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">ignore</span><span class="p">([</span>
-        <span class="s1">&#39;css/main.css&#39;</span>
-  <span class="p">]))</span>
+  <span class="hljs-comment">// Insert the hash of the file into its filename</span>
+  .use(fingerprint({
+    pattern: <span class="hljs-string">'css/main.css'</span>
+  }))
+  <span class="hljs-comment">// Forget the original file</span>
+  .use(ignore([
+        <span class="hljs-string">'css/main.css'</span>
+  ]))
 
-<span class="c1">// ...</span>
-</pre></div>
-
-</code>
-</pre>
+<span class="hljs-comment">// ...</span>
+</code></pre>
 <p>Then in my <code>templates/default.html</code> file I have:</p>
-<pre><code class="lang-html"><div class="highlight"><pre>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/{{fingerprint.[css/main.css]}}&quot;</span><span class="nt">&gt;</span>
-</pre></div>
-
-</code>
-</pre>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"/{{fingerprint.[css/main.css]}}"</span>&gt;</span>
+</code></pre>
 <p>I have also set up a simple CloudFlare Page Rule for <code>davidxmoody.com/css/*</code>. It simply sets the &quot;Browser cache expire TTL&quot; to 1 year. </p>
-
+</div>
 </article>
-
 </div>
 
 <div class="push"></div>
 </div>
 
 <footer class="site-footer">
-<p>
 <br>
+<p>
 <a href="/feed.xml">RSS</a> |
 <a href="https://github.com/davidxmoody">GitHub</a> |
 <a href="mailto:david@davidxmoody.com">Email</a>
 </p>
 <p>
 This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
 </p>
 </footer>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+								(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+								m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-54505873-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </body>
 
