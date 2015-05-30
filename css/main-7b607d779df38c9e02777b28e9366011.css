@@ -547,11 +547,23 @@ html {
 				text-align: center
 }
 
-.pagination a,
-.pagination span,
-.pagination em {
+.pagination__link,
+.pagination__disabled {
 				padding-left: 1em;
 				padding-right: 1em
+}
+
+.pagination__ellipsis {
+				padding-left: -1em;
+				padding-right: -1em
+}
+
+.pagination__ellipsis::before {
+				content: "..."
+}
+
+.pagination__separator::before {
+				content: "|"
 }
 
 blockquote {
