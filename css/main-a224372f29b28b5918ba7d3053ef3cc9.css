@@ -469,7 +469,7 @@ footer,
 .site-header,
 .site-footer {
 				background: #D34747;
-				color: white;
+				color: #fff;
 				text-align: center;
 				text-transform: uppercase
 }
@@ -482,7 +482,7 @@ footer,
 
 .site-header a,
 .site-footer a {
-				color: white
+				color: #fff
 }
 
 .site-header {
@@ -492,7 +492,7 @@ footer,
 .site-header a,
 .site-header a:hover {
 				text-decoration: none;
-				color: white;
+				color: #fff;
 				text-shadow: 2px 2px 0 #D34747, 5px 5px 0 #B52626
 }
 
