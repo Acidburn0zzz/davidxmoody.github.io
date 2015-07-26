@@ -4,13 +4,7 @@
 <head>
 
 <!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=XDGiu6DySf-GzuI84u1orw"></script>
-
-<script>
-// Ask Google Analytics which variation to show the user.
-var chosenVariation = cxApi.chooseVariation();
-console.log(chosenVariation);
-</script>
+<script src="//www.google-analytics.com/cx/api.js?experiment=dGHD0m13QWOIZcPKZTCpTQ"></script>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +14,22 @@ console.log(chosenVariation);
 <link rel="canonical" href="https://davidxmoody.com/page2/">
 <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+
+<script>
+// Ask Google Analytics which variation to show the user.
+var chosenVariation = cxApi.chooseVariation();
+switch (chosenVariation) {
+				case 0:
+								console.log('Choosing variation #0: Show all posts');
+								// Do nothing
+								break;
+				case 1:
+								console.log('Choosing variation #1: Show only featured posts');
+								document.write('<style>.article--not-featured {display: none;}</style>');
+								break;
+}
+</script>
+
 </head>
 
 <body>
@@ -32,48 +42,7 @@ console.log(chosenVariation);
 
 <div class="content">
 <div>
-<article>
-<header>
-<h1>Three months of blogging</h1>
-<p><em>Nov 10, 2014</em></p>
-</header>
-<div>
-<p>This will be my third monthly review. Yet again, I am going to look back at the last month and create a plan for the next one. </p>
-<p><a href="/three-months-of-blogging/">Read 15 remaining paragraphs...</a></p>
-</div>
-</article>
-<article>
-<header>
-<h1>20 of my favourite cooking photos</h1>
-<p><em>Nov 7, 2014</em></p>
-</header>
-<div>
-<p>I started learning to cook in September 2011. I really enjoyed it. I learned from my Mum, from books and from my own mistakes. </p>
-<p>I started taking photographs of what I was making in early 2012. Since then, I have built up a collection of 550 cooking photos of new and interesting recipes. Unfortunately many of the early photos were taking with my Nexus One camera and are pretty much unusable. However, I still have plenty worth sharing, here are my 20 favourite cooking photos. </p>
-<p><a href="/20-of-my-favourite-cooking-photos/">Read 40 remaining paragraphs...</a></p>
-</div>
-</article>
-<article>
-<header>
-<h1>Here are my dotfiles</h1>
-<p><em>Nov 5, 2014</em></p>
-</header>
-<div>
-<p>I&#39;ve recently been uploading a lot of my old projects to GitHub. There is only one left: <strong>my dotfiles</strong>.</p>
-<p><a href="/here-are-my-dotfiles/">Read 18 remaining paragraphs...</a></p>
-</div>
-</article>
-<article>
-<header>
-<h1>A specific plan for next week</h1>
-<p><em>Nov 3, 2014</em></p>
-</header>
-<div>
-<p>Three weeks ago, I wrote a <a href="/two-months-of-blogging/">two month review</a>. I said that I wanted to focus on <strong>getting a job</strong>.</p>
-<p><a href="/a-specific-plan-for-next-week/">Read 9 remaining paragraphs...</a></p>
-</div>
-</article>
-<article>
+<article class="article--featured">
 <header>
 <h1>My 10 best Tenerife photos</h1>
 <p><em>Oct 31, 2014</em></p>
@@ -84,7 +53,89 @@ console.log(chosenVariation);
 <p><a href="/my-10-best-tenerife-photos/">Read 10 remaining paragraphs...</a></p>
 </div>
 </article>
-<p class="pagination"><a class="pagination__link" href="/">«</a><span class="pagination__separator"></span><a class="pagination__link" href="/">1</a><span class="pagination__separator"></span><span class="pagination__disabled">2</span><span class="pagination__separator"></span><a class="pagination__link" href="/page3/">3</a><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">4</a><span class="pagination__ellipsis"></span><a class="pagination__link" href="/page8/">8</a><span class="pagination__separator"></span><a class="pagination__link" href="/page3/">»</a></p>
+<article class="article--featured">
+<header>
+<h1>MCTS in Texas Hold &#x27;em Poker: A retrospective</h1>
+<p><em>Oct 29, 2014</em></p>
+</header>
+<div>
+<p>I&#39;ve recently been uploading a lot of my old projects. Both to prove I&#39;ve actually done them and also in case someone might be interested.</p>
+<p>This week, I have uploaded my 3rd year Cambridge University dissertation project. It is a <strong>Texas Hold &#39;em poker-bot</strong> which uses the <strong>Monte Carlo Tree Search algorithm</strong>. You can <a href="https://github.com/davidxmoody/mctsbot">view the source on GitHub</a>. In this post, I am going to give a very brief summary of the project and make notes on how I could have done better.</p>
+<p><a href="/mcts-in-texas-hold-em-poker-a-retrospective/">Read 20 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>Changing my email address and updates to my CV</h1>
+<p><em>Oct 27, 2014</em></p>
+</header>
+<div>
+<p>I have a <em>new email address</em>: <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#100;&#97;&#118;&#x69;&#100;&#x40;&#100;&#x61;&#x76;&#x69;&#x64;&#x78;&#x6d;&#x6f;&#111;&#100;&#121;&#x2e;&#99;&#111;&#x6d;">&#100;&#97;&#118;&#x69;&#100;&#x40;&#100;&#x61;&#x76;&#x69;&#x64;&#x78;&#x6d;&#x6f;&#111;&#100;&#121;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p><a href="/changing-my-email-address-and-updates-to-my-cv/">Read 7 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>My experiences playing croquet</h1>
+<p><em>Oct 24, 2014</em></p>
+</header>
+<div>
+<p>I haven&#39;t written about it before but I am a very keen croquet player. I thought I would share some of my experiences playing in matches over the last few years. </p>
+<p><a href="/my-experiences-playing-croquet/">Read 22 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--featured">
+<header>
+<h1>Lessons learned from a three year programming project (part 2)</h1>
+<p><em>Oct 22, 2014</em></p>
+</header>
+<div>
+<p>Continued from <a href="/lessons-learned-from-a-three-year-programming-project-part-1/">part 1</a>. You can also <a href="https://github.com/davidxmoody/diary">view the project on GitHub</a>.</p>
+<p><a href="/lessons-learned-from-a-three-year-programming-project-part-2/">Read 17 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>First draft of my CV and a trip to Bristol</h1>
+<p><em>Oct 20, 2014</em></p>
+</header>
+<div>
+<p><a href="/two-months-of-blogging/">Last week</a>, I said that Mondays would be about my job search. Here&#39;s what I&#39;ve done so far.</p>
+<p><a href="/first-draft-of-my-cv-and-a-trip-to-bristol/">Read 17 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>Selling my childhood toys on eBay and Amazon</h1>
+<p><em>Oct 17, 2014</em></p>
+</header>
+<div>
+<p>I mentioned in my <a href="/two-months-of-blogging/#what-ive-been-doing-when-i-havent-been-blogging">two months of blogging post</a> that I&#39;ve been selling my family&#39;s old possessions on eBay and Amazon. Over the last couple of years, I have sold literally 144 things on eBay and 153 things on Amazon. I thought I&#39;d share a few of my thoughts on how it&#39;s gone.</p>
+<p><a href="/selling-my-childhood-toys-on-ebay-and-amazon/">Read 10 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--featured">
+<header>
+<h1>Lessons learned from a three year programming project (part 1)</h1>
+<p><em>Oct 15, 2014</em></p>
+</header>
+<div>
+<p>For the last three years, I have been working on a little pet project. It has probably taught me more about software development than my entire time at university. </p>
+<p>It&#39;s a command line program for writing and organising a personal diary (<a href="https://github.com/davidxmoody/diary">GitHub link</a>). I&#39;ve spent hundreds of hours on it and have gone through many different designs. Instead of covering every little detail of the project, I&#39;m going to write about some important lessons it has taught me. </p>
+<p><a href="/lessons-learned-from-a-three-year-programming-project-part-1/">Read 24 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>Two months of blogging</h1>
+<p><em>Oct 13, 2014</em></p>
+</header>
+<div>
+<p>I&#39;ve now been blogging for about two months. In that time, I&#39;ve written 19 posts or about 12,000 words. After my first month, <a href="/one-month-of-blogging/">I reviewed my progress</a> and adjusted my plan for the future. Now it&#39;s time to do it again. </p>
+<p><a href="/two-months-of-blogging/">Read 14 remaining paragraphs...</a></p>
+</div>
+</article>
+<p class="pagination"><a class="pagination__link" href="/">«</a><span class="pagination__separator"></span><a class="pagination__link" href="/">1</a><span class="pagination__separator"></span><span class="pagination__disabled">2</span><span class="pagination__separator"></span><a class="pagination__link" href="/page3/">3</a><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">4</a><span class="pagination__separator"></span><a class="pagination__link" href="/page5/">5</a><span class="pagination__separator"></span><a class="pagination__link" href="/page3/">»</a></p>
 </div>
 </div>
 

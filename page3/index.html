@@ -4,13 +4,7 @@
 <head>
 
 <!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=XDGiu6DySf-GzuI84u1orw"></script>
-
-<script>
-// Ask Google Analytics which variation to show the user.
-var chosenVariation = cxApi.chooseVariation();
-console.log(chosenVariation);
-</script>
+<script src="//www.google-analytics.com/cx/api.js?experiment=dGHD0m13QWOIZcPKZTCpTQ"></script>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +14,22 @@ console.log(chosenVariation);
 <link rel="canonical" href="https://davidxmoody.com/page3/">
 <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+
+<script>
+// Ask Google Analytics which variation to show the user.
+var chosenVariation = cxApi.chooseVariation();
+switch (chosenVariation) {
+				case 0:
+								console.log('Choosing variation #0: Show all posts');
+								// Do nothing
+								break;
+				case 1:
+								console.log('Choosing variation #1: Show only featured posts');
+								document.write('<style>.article--not-featured {display: none;}</style>');
+								break;
+}
+</script>
+
 </head>
 
 <body>
@@ -32,58 +42,103 @@ console.log(chosenVariation);
 
 <div class="content">
 <div>
-<article>
+<article class="article--not-featured">
 <header>
-<h1>MCTS in Texas Hold &#x27;em Poker: A retrospective</h1>
-<p><em>Oct 29, 2014</em></p>
+<h1>Writing before breakfast</h1>
+<p><em>Oct 9, 2014</em></p>
 </header>
 <div>
-<p>I&#39;ve recently been uploading a lot of my old projects. Both to prove I&#39;ve actually done them and also in case someone might be interested.</p>
-<p>This week, I have uploaded my 3rd year Cambridge University dissertation project. It is a <strong>Texas Hold &#39;em poker-bot</strong> which uses the <strong>Monte Carlo Tree Search algorithm</strong>. You can <a href="https://github.com/davidxmoody/mctsbot">view the source on GitHub</a>. In this post, I am going to give a very brief summary of the project and make notes on how I could have done better.</p>
-<p><a href="/mcts-in-texas-hold-em-poker-a-retrospective/">Read 20 remaining paragraphs...</a></p>
+<p><strong>I want to become a better writer.</strong> According to the <a href="/the-growth-mindset-applied-to-my-life-part-1/">growth mindset</a>, I know that this is achievable through <em>hard work and practice</em>. I have to consistently put in the time and effort and I will slowly get better. </p>
+<p>I knew that when I first started this blog. I set myself a schedule for publishing blog posts and have stuck to it ever since. <em>This has worked brilliantly.</em> But, it also has a few problems. Although I&#39;ve never missed a post, I have procrastinated more than I would like. This last week in particular, my writing has suffered because of it.</p>
+<p><a href="/writing-before-breakfast/">Read 11 remaining paragraphs...</a></p>
 </div>
 </article>
-<article>
+<article class="article--featured">
 <header>
-<h1>Changing my email address and updates to my CV</h1>
-<p><em>Oct 27, 2014</em></p>
+<h1>Big list of blogs I like</h1>
+<p><em>Oct 6, 2014</em></p>
 </header>
 <div>
-<p>I have a <em>new email address</em>: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x64;&#x61;&#x76;&#x69;&#x64;&#x40;&#x64;&#x61;&#118;&#105;&#x64;&#120;&#109;&#x6f;&#x6f;&#x64;&#121;&#x2e;&#99;&#x6f;&#x6d;">&#x64;&#x61;&#x76;&#x69;&#x64;&#x40;&#x64;&#x61;&#118;&#105;&#x64;&#120;&#109;&#x6f;&#x6f;&#x64;&#121;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-<p><a href="/changing-my-email-address-and-updates-to-my-cv/">Read 7 remaining paragraphs...</a></p>
+<p>I don&#39;t have time to write a proper post right now so here is a big list of some of my favourite blogs. I use <a href="http://feedly.com/">Feedly</a> as my RSS reader and save longer articles to <a href="http://getpocket.com/">Pocket</a> for later reading. </p>
+<p><a href="/big-list-of-blogs-i-like/">Read 3 remaining paragraphs...</a></p>
 </div>
 </article>
-<article>
+<article class="article--not-featured">
 <header>
-<h1>My experiences playing croquet</h1>
-<p><em>Oct 24, 2014</em></p>
+<h1>Writing speeds</h1>
+<p><em>Oct 2, 2014</em></p>
 </header>
 <div>
-<p>I haven&#39;t written about it before but I am a very keen croquet player. I thought I would share some of my experiences playing in matches over the last few years. </p>
-<p><a href="/my-experiences-playing-croquet/">Read 22 remaining paragraphs...</a></p>
+<p>I like to write a lot. I usually write for about 2-4 hours per day. For something I do so much of, there are incredible time savings to be had. Of course, writing fast is only a very small part of being a good writer. Nevertheless, these small gains add up. The less time I spend writing, the more time I can spend thinking.</p>
+<p><a href="/writing-speeds/">Read 19 remaining paragraphs...</a></p>
 </div>
 </article>
-<article>
+<article class="article--not-featured">
 <header>
-<h1>Lessons learned from a three year programming project (part 2)</h1>
-<p><em>Oct 22, 2014</em></p>
+<h1>100 push ups: The ultimate slow gains experiment</h1>
+<p><em>Sep 29, 2014</em></p>
 </header>
 <div>
-<p>Continued from <a href="/lessons-learned-from-a-three-year-programming-project-part-1/">part 1</a>. You can also <a href="https://github.com/davidxmoody/diary">view the project on GitHub</a>.</p>
-<p><a href="/lessons-learned-from-a-three-year-programming-project-part-2/">Read 17 remaining paragraphs...</a></p>
+<p>I have recently written about the <a href="/the-growth-mindset-applied-to-my-life-part-1/">growth mindset</a>. When you have a growth mindset, you believe that your basic abilities can be improved with hard work and practice. </p>
+<p>There are plenty things in my life I want to improve. However, I&#39;m going to start with exercise. I&#39;ve previously tried and failed to form exercise habits. None of my attempts have made any lasting improvements. This time I want it to be different. This time I&#39;m going to make it <strong>so easy I can&#39;t fail</strong>.</p>
+<p><a href="/100-push-ups-the-ultimate-slow-gains-experiment/">Read 9 remaining paragraphs...</a></p>
 </div>
 </article>
-<article>
+<article class="article--featured">
 <header>
-<h1>First draft of my CV and a trip to Bristol</h1>
-<p><em>Oct 20, 2014</em></p>
+<h1>The growth mindset applied to my life (part 2)</h1>
+<p><em>Sep 25, 2014</em></p>
 </header>
 <div>
-<p><a href="/two-months-of-blogging/">Last week</a>, I said that Mondays would be about my job search. Here&#39;s what I&#39;ve done so far.</p>
-<p><a href="/first-draft-of-my-cv-and-a-trip-to-bristol/">Read 17 remaining paragraphs...</a></p>
+<p>Continued from <a href="/the-growth-mindset-applied-to-my-life-part-1/">part 1</a>. This part will discuss how the different mindsets affected me after I left university.</p>
+<p><a href="/the-growth-mindset-applied-to-my-life-part-2/">Read 19 remaining paragraphs...</a></p>
 </div>
 </article>
-<p class="pagination"><a class="pagination__link" href="/page2/">«</a><span class="pagination__separator"></span><a class="pagination__link" href="/">1</a><span class="pagination__separator"></span><a class="pagination__link" href="/page2/">2</a><span class="pagination__separator"></span><span class="pagination__disabled">3</span><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">4</a><span class="pagination__ellipsis"></span><a class="pagination__link" href="/page8/">8</a><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">»</a></p>
+<article class="article--featured">
+<header>
+<h1>The growth mindset applied to my life (part 1)</h1>
+<p><em>Sep 22, 2014</em></p>
+</header>
+<div>
+<p>I am now a firm believer in the <strong>growth mindset</strong>. When someone has a growth mindset, they believe that their basic abilities (intelligence, talent, strength, etc.) can be improved through hard work and practice. This is opposed to a fixed mindset: the belief that basic abilities are &quot;fixed&quot; and cannot be improved upon. </p>
+<p>For most of my life, I have had a fixed mindset. I&#39;m trying to change that. I want to take a moment to look back at my life and see how the different mindsets have impacted me. </p>
+<p><a href="/the-growth-mindset-applied-to-my-life-part-1/">Read 12 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>The Pomodoro Technique: What I wish I&#x27;d known</h1>
+<p><em>Sep 18, 2014</em></p>
+</header>
+<div>
+<p>Let me tell you how I came to write this blog post. I have been using the Pomodoro Technique for over a year. I was using a web-based timer but felt I was due for an upgrade. I wanted a command line app.</p>
+<p>However, in my research, I learned a lot more than I thought I would. My opinion has changed on what&#39;s truly important. I only wish I had realised this sooner. </p>
+<p><a href="/the-pomodoro-technique-what-i-wish-i-d-known/">Read 16 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--not-featured">
+<header>
+<h1>One month of blogging</h1>
+<p><em>Sep 5, 2014</em></p>
+</header>
+<div>
+<p>I have now published three posts per week for the last four weeks. That&#39;s about 7,000 words. </p>
+<p>When I started, I just wanted to start. I knew I would never be completely ready but I also knew it didn&#39;t matter. Now that I&#39;ve been blogging for one month, it&#39;s time for a review. I want to take stock of what went well and what could have gone better. </p>
+<p><a href="/one-month-of-blogging/">Read 22 remaining paragraphs...</a></p>
+</div>
+</article>
+<article class="article--featured">
+<header>
+<h1>Permanent Bash aliases</h1>
+<p><em>Sep 3, 2014</em></p>
+</header>
+<div>
+<p>This post will introduce a handy little Bash tip. I created it over a year ago but many other people have already done similar things.</p>
+<p>Bash aliases are incredibly convenient. If, for some reason, you don&#39;t already use them then you should <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions">read this tutorial</a>. </p>
+<p><a href="/permanent-bash-aliases/">Read 7 remaining paragraphs...</a></p>
+</div>
+</article>
+<p class="pagination"><a class="pagination__link" href="/page2/">«</a><span class="pagination__separator"></span><a class="pagination__link" href="/">1</a><span class="pagination__separator"></span><a class="pagination__link" href="/page2/">2</a><span class="pagination__separator"></span><span class="pagination__disabled">3</span><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">4</a><span class="pagination__separator"></span><a class="pagination__link" href="/page5/">5</a><span class="pagination__separator"></span><a class="pagination__link" href="/page4/">»</a></p>
 </div>
 </div>
 
