@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://davidxmoody.com/cv/</loc>
-        <lastmod>2015-05-31</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://davidxmoody.com/hello-world/</loc>
+        <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc>
         <lastmod>2015-07-25</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc>
+        <loc>https://davidxmoody.com/hello-world/</loc>
         <lastmod>2015-07-25</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
@@ -229,32 +223,38 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://davidxmoody.com/cv/</loc>
+        <lastmod>2015-05-31</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://davidxmoody.com/</loc>
-        <lastmod>2015-07-26</lastmod>
+        <lastmod>2015-08-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page2/</loc>
-        <lastmod>2015-07-26</lastmod>
+        <lastmod>2015-08-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page3/</loc>
-        <lastmod>2015-07-26</lastmod>
+        <lastmod>2015-08-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page4/</loc>
-        <lastmod>2015-07-26</lastmod>
+        <lastmod>2015-08-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page5/</loc>
-        <lastmod>2015-07-26</lastmod>
+        <lastmod>2015-08-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
