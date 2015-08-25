@@ -23,7 +23,7 @@
 </header>
 
 <div class="content">
-<article class="article--featured">
+<article>
 <header>
 <h1>Better Vim abbreviations</h1>
 <p><em>Aug 27, 2014</em></p>
@@ -49,8 +49,10 @@ iab cof CoffeeScript
 <p>I was about to start creating my own script to deal with this stuff. Thankfully, one already exists. </p>
 <h2 id="abolish-plugin">Abolish plugin</h2>
 <p>The <a href="https://github.com/tpope/vim-abolish">Vim Abolish plugin</a> is pretty neat. Read the tutorial for a full walkthrough of the features. It lets you do stuff like this:</p>
-<pre><code class="lang-vim">Abolish seperate separate
-<span class="hljs-string">" Results in:
+<pre><code class="lang-vim"><span class="hljs-string">" Typing the following:
+</span>Abolish seperate separate
+
+<span class="hljs-string">" Is equivalent to:
 </span><span class="hljs-keyword">iabbrev</span> seperate separate
 <span class="hljs-keyword">iabbrev</span> Seperate Separate
 <span class="hljs-keyword">iabbrev</span> SEPERATE SEPARATE

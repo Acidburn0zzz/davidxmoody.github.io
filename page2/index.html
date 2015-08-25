@@ -3,9 +3,6 @@
 
 <head>
 
-<!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=RzhKVzBdTAec-yBqPRT8KQ"></script>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>David Moody&#x27;s Blog</title>
@@ -14,21 +11,6 @@
 <link rel="canonical" href="https://davidxmoody.com/page2/">
 <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
-
-<script>
-// Ask Google Analytics which variation to show the user.
-var chosenVariation = cxApi.chooseVariation();
-switch (chosenVariation) {
-				case 0:
-								console.log('Choosing variation #0: Show all posts');
-								// Do nothing
-								break;
-				case 1:
-								console.log('Choosing variation #1: Show only featured posts');
-								document.write('<style>.article--not-featured {display: none;}</style>');
-								break;
-}
-</script>
 
 </head>
 
@@ -42,7 +24,7 @@ switch (chosenVariation) {
 
 <div class="content">
 <div>
-<article class="article--featured">
+<article>
 <header>
 <h1>My 10 best Tenerife photos</h1>
 <p><em>Oct 31, 2014</em></p>
@@ -53,7 +35,7 @@ switch (chosenVariation) {
 <p><a href="/my-10-best-tenerife-photos/">Read 10 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>MCTS in Texas Hold &#x27;em Poker: A retrospective</h1>
 <p><em>Oct 29, 2014</em></p>
@@ -64,17 +46,17 @@ switch (chosenVariation) {
 <p><a href="/mcts-in-texas-hold-em-poker-a-retrospective/">Read 20 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Changing my email address and updates to my CV</h1>
 <p><em>Oct 27, 2014</em></p>
 </header>
 <div>
-<p>I have a <em>new email address</em>: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#100;&#97;&#x76;&#105;&#x64;&#x40;&#100;&#97;&#118;&#x69;&#100;&#120;&#109;&#x6f;&#111;&#100;&#121;&#46;&#99;&#111;&#109;">&#100;&#97;&#x76;&#105;&#x64;&#x40;&#100;&#97;&#118;&#x69;&#100;&#120;&#109;&#x6f;&#111;&#100;&#121;&#46;&#99;&#111;&#109;</a></p>
+<p>I have a <em>new email address</em>: <a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x64;&#97;&#118;&#105;&#100;&#x40;&#100;&#97;&#118;&#105;&#x64;&#x78;&#x6d;&#111;&#111;&#100;&#x79;&#46;&#99;&#x6f;&#x6d;">&#x64;&#97;&#118;&#105;&#100;&#x40;&#100;&#97;&#118;&#105;&#x64;&#x78;&#x6d;&#111;&#111;&#100;&#x79;&#46;&#99;&#x6f;&#x6d;</a></p>
 <p><a href="/changing-my-email-address-and-updates-to-my-cv/">Read 7 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>My experiences playing croquet</h1>
 <p><em>Oct 24, 2014</em></p>
@@ -84,7 +66,7 @@ switch (chosenVariation) {
 <p><a href="/my-experiences-playing-croquet/">Read 22 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Lessons learned from a three year programming project (part 2)</h1>
 <p><em>Oct 22, 2014</em></p>
@@ -94,7 +76,7 @@ switch (chosenVariation) {
 <p><a href="/lessons-learned-from-a-three-year-programming-project-part-2/">Read 17 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>First draft of my CV and a trip to Bristol</h1>
 <p><em>Oct 20, 2014</em></p>
@@ -104,7 +86,7 @@ switch (chosenVariation) {
 <p><a href="/first-draft-of-my-cv-and-a-trip-to-bristol/">Read 17 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Selling my childhood toys on eBay and Amazon</h1>
 <p><em>Oct 17, 2014</em></p>
@@ -114,7 +96,7 @@ switch (chosenVariation) {
 <p><a href="/selling-my-childhood-toys-on-ebay-and-amazon/">Read 10 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Lessons learned from a three year programming project (part 1)</h1>
 <p><em>Oct 15, 2014</em></p>
@@ -125,7 +107,7 @@ switch (chosenVariation) {
 <p><a href="/lessons-learned-from-a-three-year-programming-project-part-1/">Read 24 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Two months of blogging</h1>
 <p><em>Oct 13, 2014</em></p>

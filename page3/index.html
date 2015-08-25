@@ -3,9 +3,6 @@
 
 <head>
 
-<!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=RzhKVzBdTAec-yBqPRT8KQ"></script>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>David Moody&#x27;s Blog</title>
@@ -14,21 +11,6 @@
 <link rel="canonical" href="https://davidxmoody.com/page3/">
 <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
-
-<script>
-// Ask Google Analytics which variation to show the user.
-var chosenVariation = cxApi.chooseVariation();
-switch (chosenVariation) {
-				case 0:
-								console.log('Choosing variation #0: Show all posts');
-								// Do nothing
-								break;
-				case 1:
-								console.log('Choosing variation #1: Show only featured posts');
-								document.write('<style>.article--not-featured {display: none;}</style>');
-								break;
-}
-</script>
 
 </head>
 
@@ -42,7 +24,7 @@ switch (chosenVariation) {
 
 <div class="content">
 <div>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Writing before breakfast</h1>
 <p><em>Oct 9, 2014</em></p>
@@ -53,7 +35,7 @@ switch (chosenVariation) {
 <p><a href="/writing-before-breakfast/">Read 11 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Big list of blogs I like</h1>
 <p><em>Oct 6, 2014</em></p>
@@ -63,7 +45,7 @@ switch (chosenVariation) {
 <p><a href="/big-list-of-blogs-i-like/">Read 3 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Writing speeds</h1>
 <p><em>Oct 2, 2014</em></p>
@@ -73,7 +55,7 @@ switch (chosenVariation) {
 <p><a href="/writing-speeds/">Read 19 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>100 push ups: The ultimate slow gains experiment</h1>
 <p><em>Sep 29, 2014</em></p>
@@ -84,7 +66,7 @@ switch (chosenVariation) {
 <p><a href="/100-push-ups-the-ultimate-slow-gains-experiment/">Read 9 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>The growth mindset applied to my life (part 2)</h1>
 <p><em>Sep 25, 2014</em></p>
@@ -94,7 +76,7 @@ switch (chosenVariation) {
 <p><a href="/the-growth-mindset-applied-to-my-life-part-2/">Read 19 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>The growth mindset applied to my life (part 1)</h1>
 <p><em>Sep 22, 2014</em></p>
@@ -105,7 +87,7 @@ switch (chosenVariation) {
 <p><a href="/the-growth-mindset-applied-to-my-life-part-1/">Read 12 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>The Pomodoro Technique: What I wish I&#x27;d known</h1>
 <p><em>Sep 18, 2014</em></p>
@@ -116,7 +98,7 @@ switch (chosenVariation) {
 <p><a href="/the-pomodoro-technique-what-i-wish-i-d-known/">Read 16 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>One month of blogging</h1>
 <p><em>Sep 5, 2014</em></p>
@@ -127,7 +109,7 @@ switch (chosenVariation) {
 <p><a href="/one-month-of-blogging/">Read 22 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Permanent Bash aliases</h1>
 <p><em>Sep 3, 2014</em></p>

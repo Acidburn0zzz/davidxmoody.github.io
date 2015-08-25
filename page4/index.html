@@ -3,9 +3,6 @@
 
 <head>
 
-<!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=RzhKVzBdTAec-yBqPRT8KQ"></script>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>David Moody&#x27;s Blog</title>
@@ -14,21 +11,6 @@
 <link rel="canonical" href="https://davidxmoody.com/page4/">
 <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
 <meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
-
-<script>
-// Ask Google Analytics which variation to show the user.
-var chosenVariation = cxApi.chooseVariation();
-switch (chosenVariation) {
-				case 0:
-								console.log('Choosing variation #0: Show all posts');
-								// Do nothing
-								break;
-				case 1:
-								console.log('Choosing variation #1: Show only featured posts');
-								document.write('<style>.article--not-featured {display: none;}</style>');
-								break;
-}
-</script>
 
 </head>
 
@@ -42,7 +24,7 @@ switch (chosenVariation) {
 
 <div class="content">
 <div>
-<article class="article--featured">
+<article>
 <header>
 <h1>Music for programming</h1>
 <p><em>Sep 1, 2014</em></p>
@@ -52,7 +34,7 @@ switch (chosenVariation) {
 <p><a href="/music-for-programming/">Read 20 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Vim auto-capitalisation</h1>
 <p><em>Aug 29, 2014</em></p>
@@ -63,7 +45,7 @@ switch (chosenVariation) {
 <p><a href="/vim-auto-capitalisation/">Read 16 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Better Vim abbreviations</h1>
 <p><em>Aug 27, 2014</em></p>
@@ -74,7 +56,7 @@ switch (chosenVariation) {
 <p><a href="/better-vim-abbreviations/">Read 16 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>My password generation scheme</h1>
 <p><em>Aug 25, 2014</em></p>
@@ -85,7 +67,7 @@ switch (chosenVariation) {
 <p><a href="/my-password-generation-scheme/">Read 14 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>A third attempt at Anki</h1>
 <p><em>Aug 22, 2014</em></p>
@@ -96,7 +78,7 @@ switch (chosenVariation) {
 <p><a href="/a-third-attempt-at-anki/">Read 13 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--not-featured">
+<article>
 <header>
 <h1>Namecheap, GitHub Pages and apex domains</h1>
 <p><em>Aug 20, 2014</em></p>
@@ -107,7 +89,7 @@ switch (chosenVariation) {
 <p><a href="/namecheap-github-pages-and-apex-domains/">Read 8 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Wordsearch game</h1>
 <p><em>Aug 18, 2014</em></p>
@@ -118,7 +100,7 @@ switch (chosenVariation) {
 <p><a href="/wordsearch-game/">Read 23 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Paragraph counts in jekyll</h1>
 <p><em>Aug 15, 2014</em></p>
@@ -133,7 +115,7 @@ switch (chosenVariation) {
 <p><a href="/paragraph-counts-in-jekyll/">Read 12 remaining paragraphs...</a></p>
 </div>
 </article>
-<article class="article--featured">
+<article>
 <header>
 <h1>Creating a style for this blog</h1>
 <p><em>Aug 13, 2014</em></p>
