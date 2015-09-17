@@ -8,7 +8,7 @@
     </url>
     <url>
         <loc>https://davidxmoody.com/hello-world/</loc>
-        <lastmod>2015-08-19</lastmod>
+        <lastmod>2015-08-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
@@ -229,32 +229,38 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://davidxmoody.com/google-content-experiments-for-static-sites/</loc>
+        <lastmod>2015-09-17</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://davidxmoody.com/</loc>
-        <lastmod>2015-08-25</lastmod>
+        <lastmod>2015-09-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page2/</loc>
-        <lastmod>2015-08-25</lastmod>
+        <lastmod>2015-09-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page3/</loc>
-        <lastmod>2015-08-25</lastmod>
+        <lastmod>2015-09-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page4/</loc>
-        <lastmod>2015-08-25</lastmod>
+        <lastmod>2015-09-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://davidxmoody.com/page5/</loc>
-        <lastmod>2015-08-25</lastmod>
+        <lastmod>2015-09-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
