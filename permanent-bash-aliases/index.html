@@ -47,7 +47,7 @@
   <span class="hljs-comment"># Execute the command, if successful then print </span>
   <span class="hljs-comment"># out the alias and add it to ~/.bash_aliases</span>
   <span class="hljs-built_in">eval</span> <span class="hljs-string">"<span class="hljs-variable">$alias_command</span>"</span> &amp;&amp; \
-  <span class="hljs-built_in">alias</span> <span class="hljs-string">"<span class="hljs-variable">$alias_name</span>"</span> | tee <span class="hljs-operator">-a</span> <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.bash_aliases"</span>
+  <span class="hljs-built_in">alias</span> <span class="hljs-string">"<span class="hljs-variable">$alias_name</span>"</span> | tee <span class="hljs-_">-a</span> <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.bash_aliases"</span>
 }
 </code></pre>
 <p>This allows you to create a &quot;permanent&quot; alias which gets added to your <code>~/.bash_aliases</code> file. It has a few other features. It prints out the alias (as interpreted by Bash) so you can check that nothing went wrong. It also allows you to omit quotes in many circumstances. </p>

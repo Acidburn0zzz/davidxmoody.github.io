@@ -51,7 +51,7 @@
   <span class="hljs-comment"># Execute the command, if successful then print </span>
   <span class="hljs-comment"># out the alias and add it to ~/.bash_aliases</span>
   <span class="hljs-built_in">eval</span> <span class="hljs-string">"<span class="hljs-variable">$alias_command</span>"</span> &amp;&amp; \
-  <span class="hljs-built_in">alias</span> <span class="hljs-string">"<span class="hljs-variable">$alias_name</span>"</span> | tee <span class="hljs-operator">-a</span> <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.bash_aliases"</span>
+  <span class="hljs-built_in">alias</span> <span class="hljs-string">"<span class="hljs-variable">$alias_name</span>"</span> | tee <span class="hljs-_">-a</span> <span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.bash_aliases"</span>
 }
 </code></pre>
 <h2 id="jpeg-metadata-stripping-and-resizing">JPEG metadata stripping and resizing</h2>
@@ -61,7 +61,7 @@
 <span class="hljs-function"><span class="hljs-title">resize800</span></span>() {
   stripjpg <span class="hljs-string">"<span class="hljs-variable">$@</span>"</span> &amp;&amp; \
   <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> <span class="hljs-string">"<span class="hljs-variable">$@</span>"</span>; <span class="hljs-keyword">do</span>
-    convert <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span> -resize <span class="hljs-number">800</span>x <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span>
+    convert <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span> -resize 800x <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span>
   <span class="hljs-keyword">done</span>
 }
 </code></pre>
@@ -88,8 +88,8 @@ word_tallies = Counter()
 <p>It also appends a dot to the names (because I don&#39;t like hidden files in a project directory specifically meant for dotfiles). Additionally, it backs up anything that was already in my home directory with the same name (but avoids creating backed up duplicate links).</p>
 <pre><code class="lang-bash"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> dotfiles/*; <span class="hljs-keyword">do</span>
     target=<span class="hljs-string">"<span class="hljs-variable">$HOME</span>/.<span class="hljs-variable">${file#dotfiles/}</span>"</span>
-    target_canon=$(readlink <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$target</span>"</span>)
-    file_canon=$(readlink <span class="hljs-operator">-f</span> <span class="hljs-string">"<span class="hljs-variable">$file</span>"</span>)
+    target_canon=$(readlink <span class="hljs-_">-f</span> <span class="hljs-string">"<span class="hljs-variable">$target</span>"</span>)
+    file_canon=$(readlink <span class="hljs-_">-f</span> <span class="hljs-string">"<span class="hljs-variable">$file</span>"</span>)
     [ <span class="hljs-string">"<span class="hljs-variable">$target_canon</span>"</span> = <span class="hljs-string">"<span class="hljs-variable">$file_canon</span>"</span> ] &amp;&amp; <span class="hljs-built_in">continue</span>
     ln -sbv <span class="hljs-string">"<span class="hljs-variable">$file_canon</span>"</span> <span class="hljs-string">"<span class="hljs-variable">$target</span>"</span>
 <span class="hljs-keyword">done</span>

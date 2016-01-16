@@ -48,21 +48,21 @@ excerpt_separator: &quot;\n\n\n&quot;  # My version
 <h2 id="counting-paragraphs">Counting paragraphs</h2>
 <p>Now that we&#39;ve defined a custom, multi-paragraph excerpt, we still need to count the number of <em>remaining</em> paragraphs in the post. </p>
 <p>Liquid templates weren&#39;t really designed for this kind of stuff and they lack full regular expression support. However, they do have the very convenient <code>split</code> filter which we will be using. We can split the formatted HTML of the post on the <code>&#39;&lt;p&gt;&#39;</code> substring. This will break it into segments for each paragraph. One slight caveat is that there will be an empty string before the first paragraph.</p>
-<pre><code class="lang-html">{% assign total_paragraphs = post.content | split: '<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>' | size | minus: 1 %}
-{% assign excerpt_paragraphs = post.excerpt | split: '<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>' | size | minus: 1 %}
+<pre><code class="lang-html">{% assign total_paragraphs = post.content | split: '<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>' | size | minus: 1 %}
+{% assign excerpt_paragraphs = post.excerpt | split: '<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>' | size | minus: 1 %}
 {% assign remaining_paragraphs = total_paragraphs | minus: excerpt_paragraphs %}
-<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{ post.url }}"</span>&gt;</span>Read {{ remaining_paragraphs }} remaining paragraphs...<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ post.url }}"</span>&gt;</span>Read {{ remaining_paragraphs }} remaining paragraphs...<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <h2 id="short-posts">Short posts</h2>
 <p>What if you want to write a short post though? One where you want the excerpt to equal the entire post. Not a problem. If you simply don&#39;t include the <code>excerpt_separator</code> in your post then the excerpt will be equal to the full content of the post. </p>
 <p>You could also change the wording a bit:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{ post.url }}"</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ post.url }}"</span>&gt;</span>
   {% if remaining_paragraphs &gt; 0 %}
   Read {{ remaining_paragraphs }} remaining paragraphs...
   {% else %}
   View post on separate page
   {% endif %}
-<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 </div>
 </article>

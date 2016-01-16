@@ -48,7 +48,7 @@
 <p>Here&#39;s the script:</p>
 <pre><code class="lang-bash">git branch -D master
 git checkout -b master
-git filter-branch --subdirectory-filter _site/ <span class="hljs-operator">-f</span>
+git filter-branch --subdirectory-filter _site/ <span class="hljs-_">-f</span>
 git checkout <span class="hljs-built_in">source</span>
 git push --all origin
 </code></pre>
@@ -74,12 +74,12 @@ git push --all origin
 <p>I was thinking about how to do this for a while. I thought about creating a separate Git repo in the build dir. However, a slight problem arises when you want to clean the build dir because the <code>.git</code> directory would get removed. </p>
 <p>I eventually found out about Git&#39;s <code>--work-tree=</code> option. It allows you to treat a directory as though it were the working tree of your Git repository (even if the <code>.git</code> dir isn&#39;t located in it). I also employed some other tricks to commit changes to the master branch without actually checking it out. </p>
 <p>Anyway, here&#39;s the full script:</p>
-<pre><code class="lang-sh"><span class="hljs-shebang">#!/bin/sh
+<pre><code class="lang-sh"><span class="hljs-meta">#!/bin/sh
 </span>
-<span class="hljs-built_in">set</span> <span class="hljs-operator">-e</span>
+<span class="hljs-built_in">set</span> <span class="hljs-_">-e</span>
 
 <span class="hljs-comment"># Check for uncommitted changes or untracked files</span>
-[ -n <span class="hljs-string">"<span class="hljs-variable">$(git status --porcelain)</span>"</span> ] &amp;&amp; git status &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+[ -n <span class="hljs-string">"<span class="hljs-variable">$(git status --porcelain)</span>"</span> ] &amp;&amp; git status &amp;&amp; <span class="hljs-built_in">exit</span> 1
 
 <span class="hljs-comment"># Switch to master branch without changing any files</span>
 git symbolic-ref HEAD refs/heads/master

@@ -41,7 +41,7 @@
 <h3 id="add-the-experiment-script">Add the experiment script</h3>
 <p>The experiment script must fire on the page. Note that unlike in the guide, I recommend placing the script in the <code>head</code> of the document.</p>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Load the Content Experiment JavaScript API client for the experiment --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"//www.google-analytics.com/cx/api.js?experiment=YOUR_EXPERIMENT_ID"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//www.google-analytics.com/cx/api.js?experiment=YOUR_EXPERIMENT_ID"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <h3 id="write-a-css-rule-to-the-page">Write a CSS rule to the page</h3>
 <p>Next, use the <code>cxApi.chooseVariation()</code> method to choose an experimental variation. Based on that result, conditionally write a CSS rule to the page using <code>document.write()</code>.</p>
@@ -56,8 +56,8 @@
 }
 </code></pre>
 <p>Here is an example of roughly what the HTML could have looked like. </p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">article</span>&gt;</span>This is visible<span class="hljs-tag">&lt;/<span class="hljs-title">article</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">article</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"experiment-hide"</span>&gt;</span>This *may* be hidden<span class="hljs-tag">&lt;/<span class="hljs-title">article</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>This is visible<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"experiment-hide"</span>&gt;</span>This *may* be hidden<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
 </code></pre>
 <h2 id="alternatives">Alternatives</h2>
 <p>What if you want to do something more complex than just hiding things? Well you can! Here is a quick list of ideas that would work with the method I have already outlined:</p>
