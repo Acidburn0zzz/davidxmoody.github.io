@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url> <loc>https://davidxmoody.com/cv/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/hello-world/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/wordsearch-game/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/namecheap-github-pages-and-apex-domains/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/a-third-attempt-at-anki/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/my-password-generation-scheme/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/better-vim-abbreviations/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/vim-auto-capitalisation/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/music-for-programming/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/permanent-bash-aliases/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/one-month-of-blogging/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/the-pomodoro-technique-what-i-wish-i-d-known/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/the-growth-mindset-applied-to-my-life-part-1/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/the-growth-mindset-applied-to-my-life-part-2/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/100-push-ups-the-ultimate-slow-gains-experiment/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/writing-speeds/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/big-list-of-blogs-i-like/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/writing-before-breakfast/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/two-months-of-blogging/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/lessons-learned-from-a-three-year-programming-project-part-1/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/selling-my-childhood-toys-on-ebay-and-amazon/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/first-draft-of-my-cv-and-a-trip-to-bristol/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/lessons-learned-from-a-three-year-programming-project-part-2/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/my-experiences-playing-croquet/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/changing-my-email-address-and-updates-to-my-cv/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/mcts-in-texas-hold-em-poker-a-retrospective/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/my-10-best-tenerife-photos/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/a-specific-plan-for-next-week/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/here-are-my-dotfiles/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/20-of-my-favourite-cooking-photos/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/three-months-of-blogging/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/host-any-static-site-with-github-pages/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/cloudflare-and-hashed-css/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/building-a-blog-with-metalsmith/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/word-frequency-analysis-with-command-line-tools/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/publishing-my-first-npm-package/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/google-content-experiments-for-static-sites/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/page2/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/page3/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/page4/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://davidxmoody.com/page5/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://davidxmoody.com/cv/</loc> </url>
+<url> <loc>https://davidxmoody.com/hello-world/</loc> </url>
+<url> <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc> </url>
+<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> </url>
+<url> <loc>https://davidxmoody.com/wordsearch-game/</loc> </url>
+<url> <loc>https://davidxmoody.com/namecheap-github-pages-and-apex-domains/</loc> </url>
+<url> <loc>https://davidxmoody.com/a-third-attempt-at-anki/</loc> </url>
+<url> <loc>https://davidxmoody.com/my-password-generation-scheme/</loc> </url>
+<url> <loc>https://davidxmoody.com/better-vim-abbreviations/</loc> </url>
+<url> <loc>https://davidxmoody.com/vim-auto-capitalisation/</loc> </url>
+<url> <loc>https://davidxmoody.com/music-for-programming/</loc> </url>
+<url> <loc>https://davidxmoody.com/permanent-bash-aliases/</loc> </url>
+<url> <loc>https://davidxmoody.com/one-month-of-blogging/</loc> </url>
+<url> <loc>https://davidxmoody.com/the-pomodoro-technique-what-i-wish-i-d-known/</loc> </url>
+<url> <loc>https://davidxmoody.com/the-growth-mindset-applied-to-my-life-part-1/</loc> </url>
+<url> <loc>https://davidxmoody.com/the-growth-mindset-applied-to-my-life-part-2/</loc> </url>
+<url> <loc>https://davidxmoody.com/100-push-ups-the-ultimate-slow-gains-experiment/</loc> </url>
+<url> <loc>https://davidxmoody.com/writing-speeds/</loc> </url>
+<url> <loc>https://davidxmoody.com/big-list-of-blogs-i-like/</loc> </url>
+<url> <loc>https://davidxmoody.com/writing-before-breakfast/</loc> </url>
+<url> <loc>https://davidxmoody.com/two-months-of-blogging/</loc> </url>
+<url> <loc>https://davidxmoody.com/lessons-learned-from-a-three-year-programming-project-part-1/</loc> </url>
+<url> <loc>https://davidxmoody.com/selling-my-childhood-toys-on-ebay-and-amazon/</loc> </url>
+<url> <loc>https://davidxmoody.com/first-draft-of-my-cv-and-a-trip-to-bristol/</loc> </url>
+<url> <loc>https://davidxmoody.com/lessons-learned-from-a-three-year-programming-project-part-2/</loc> </url>
+<url> <loc>https://davidxmoody.com/my-experiences-playing-croquet/</loc> </url>
+<url> <loc>https://davidxmoody.com/changing-my-email-address-and-updates-to-my-cv/</loc> </url>
+<url> <loc>https://davidxmoody.com/mcts-in-texas-hold-em-poker-a-retrospective/</loc> </url>
+<url> <loc>https://davidxmoody.com/my-10-best-tenerife-photos/</loc> </url>
+<url> <loc>https://davidxmoody.com/a-specific-plan-for-next-week/</loc> </url>
+<url> <loc>https://davidxmoody.com/here-are-my-dotfiles/</loc> </url>
+<url> <loc>https://davidxmoody.com/20-of-my-favourite-cooking-photos/</loc> </url>
+<url> <loc>https://davidxmoody.com/three-months-of-blogging/</loc> </url>
+<url> <loc>https://davidxmoody.com/host-any-static-site-with-github-pages/</loc> </url>
+<url> <loc>https://davidxmoody.com/cloudflare-and-hashed-css/</loc> </url>
+<url> <loc>https://davidxmoody.com/building-a-blog-with-metalsmith/</loc> </url>
+<url> <loc>https://davidxmoody.com/word-frequency-analysis-with-command-line-tools/</loc> </url>
+<url> <loc>https://davidxmoody.com/publishing-my-first-npm-package/</loc> </url>
+<url> <loc>https://davidxmoody.com/google-content-experiments-for-static-sites/</loc> </url>
+<url> <loc>https://davidxmoody.com/blinkist-book-review-the-miracle-morning/</loc> </url>
+<url> <loc>https://davidxmoody.com/</loc> </url>
+<url> <loc>https://davidxmoody.com/page2/</loc> </url>
+<url> <loc>https://davidxmoody.com/page3/</loc> </url>
+<url> <loc>https://davidxmoody.com/page4/</loc> </url>
+<url> <loc>https://davidxmoody.com/page5/</loc> </url>
 </urlset>

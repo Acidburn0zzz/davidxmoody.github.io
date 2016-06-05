@@ -65,10 +65,10 @@
 <li>I was using CoffeeScript but wanted to compile to JavaScript before publishing. In my <a href="https://github.com/davidxmoody/metalsmith-broken-link-checker/blob/master/package.json">package.json</a> I have the following prepublish script to do that and also a watch script for development which runs my tests on any change.</li>
 </ul>
 <pre><code class="lang-json">{
-  "<span class="hljs-attr">scripts</span>": {
-    "<span class="hljs-attr">watch</span>": <span class="hljs-string">"coffee --watch -o lib -c src/*.coffee &amp; mocha --watch --compilers coffee:coffee-script/register"</span>,
-    "<span class="hljs-attr">test</span>": <span class="hljs-string">"mocha --compilers coffee:coffee-script/register"</span>,
-    "<span class="hljs-attr">prepublish</span>": <span class="hljs-string">"coffee -o lib -c src/*.coffee"</span>
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"watch"</span>: <span class="hljs-string">"coffee --watch -o lib -c src/*.coffee &amp; mocha --watch --compilers coffee:coffee-script/register"</span>,
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"mocha --compilers coffee:coffee-script/register"</span>,
+    <span class="hljs-attr">"prepublish"</span>: <span class="hljs-string">"coffee -o lib -c src/*.coffee"</span>
   },
 }
 </code></pre>

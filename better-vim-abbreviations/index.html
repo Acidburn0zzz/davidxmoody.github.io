@@ -49,35 +49,35 @@ iab cof CoffeeScript
 <p>I was about to start creating my own script to deal with this stuff. Thankfully, one already exists. </p>
 <h2 id="abolish-plugin">Abolish plugin</h2>
 <p>The <a href="https://github.com/tpope/vim-abolish">Vim Abolish plugin</a> is pretty neat. Read the tutorial for a full walkthrough of the features. It lets you do stuff like this:</p>
-<pre><code class="lang-vim"><span class="hljs-string">" Typing the following:
-</span>Abolish seperate separate
+<pre><code class="lang-vim"><span class="hljs-comment">" Typing the following:</span>
+Abolish seperate separate
 
-<span class="hljs-string">" Is equivalent to:
-</span><span class="hljs-keyword">iabbrev</span> seperate separate
+<span class="hljs-comment">" Is equivalent to:</span>
+<span class="hljs-keyword">iabbrev</span> seperate separate
 <span class="hljs-keyword">iabbrev</span> Seperate Separate
 <span class="hljs-keyword">iabbrev</span> SEPERATE SEPARATE
 </code></pre>
 <p>It has more advanced features which allow you to group together related words:</p>
-<pre><code class="lang-vim">Abolish cal{a,e}nder{,s} cal{e}ndar{}
+<pre><code class="lang-vim">Abolish <span class="hljs-keyword">cal</span>{<span class="hljs-keyword">a</span>,<span class="hljs-keyword">e</span>}nder{,s} <span class="hljs-keyword">cal</span>{<span class="hljs-keyword">e</span>}ndar{}
 </code></pre>
 <p>Also, if you place a <code>!</code> at the end, you can add words to you abbreviations file easily:</p>
-<pre><code class="lang-vim"><span class="hljs-string">" In ~/.vim/abbreviations.vim (or where-ever you like)
-</span>
-<span class="hljs-string">" `expand('&lt;sfile&gt;:p')` gets the absolute path of the 
-</span><span class="hljs-string">" current file that this is being executed from
-</span><span class="hljs-keyword">let</span> <span class="hljs-variable">g:abolish_save_file</span> = <span class="hljs-built_in">expand</span>(<span class="hljs-string">'&lt;sfile&gt;:p'</span>)
+<pre><code class="lang-vim"><span class="hljs-comment">" In ~/.vim/abbreviations.vim (or where-ever you like)</span>
+
+<span class="hljs-comment">" `expand('&lt;sfile&gt;:p')` gets the absolute path of the </span>
+<span class="hljs-comment">" current file that this is being executed from</span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">g:abolish_save_file</span> = <span class="hljs-built_in">expand</span>(<span class="hljs-string">'&lt;sfile&gt;:p'</span>)
 
 <span class="hljs-keyword">if</span> !exists(<span class="hljs-string">":Abolish"</span>)
   <span class="hljs-keyword">finish</span>
 <span class="hljs-keyword">endif</span>
 
-<span class="hljs-string">" Typing `:Abolish! im I'm` will append the following
-</span><span class="hljs-string">" to the end of this file:
-</span>Abolish <span class="hljs-keyword">im</span> I<span class="hljs-string">'m</span>
+<span class="hljs-comment">" Typing `:Abolish! im I'm` will append the following</span>
+<span class="hljs-comment">" to the end of this file:</span>
+Abolish <span class="hljs-keyword">im</span> I<span class="hljs-string">'m</span>
 </code></pre>
 <p>There is also a <code>Subvert</code> command for doing similar things in search and replace:</p>
-<pre><code class="lang-vim">&quot; Will replace &quot;Facilities&quot; with &quot;Buildings&quot;, etc.
-:%Subvert/facilit{y,ies}/building{,s}/g
+<pre><code class="lang-vim"><span class="hljs-string">" Will replace "</span>Facilities<span class="hljs-string">" with "</span>Buildings<span class="hljs-comment">", etc.</span>
+:%Subvert/facilit{<span class="hljs-keyword">y</span>,ies}/building{,s}/g
 </code></pre>
 <p>Again, check the <a href="https://github.com/tpope/vim-abolish">GitHub repo</a> for more details. I haven&#39;t been using the plugin for long but I really like it so far. </p>
 </div>

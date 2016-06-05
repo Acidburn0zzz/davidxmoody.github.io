@@ -34,7 +34,7 @@
 <!--more-->
 <h2 id="the-scripts">The scripts</h2>
 <p>There is surprisingly little information available about this. The only decent thing I&#39;ve ever found has been <a href="http://superuser.com/questions/737130/automatically-capitalize-the-first-letter-of-sentence-in-vim">this superuser question/answer</a>. There are two answers, both of which I like:</p>
-<pre><code class="lang-vim"><span class="hljs-keyword">for</span> char in <span class="hljs-built_in">split</span>(<span class="hljs-string">'abcdefghijklmnopqrstuvwxyz'</span>, <span class="hljs-string">'\zs'</span>)
+<pre><code class="lang-vim"><span class="hljs-keyword">for</span> char in <span class="hljs-keyword">split</span>(<span class="hljs-string">'abcdefghijklmnopqrstuvwxyz'</span>, <span class="hljs-string">'\zs'</span>)
     <span class="hljs-keyword">exe</span> <span class="hljs-built_in">printf</span>(<span class="hljs-string">"inoremap &lt;expr&gt; %s search('[.!?]\\_s\\+\\%%#', 'bcnw') ? '%s' : '%s'"</span>, char, <span class="hljs-built_in">toupper</span>(char), char)
 <span class="hljs-keyword">endfor</span>
 </code></pre>
@@ -75,12 +75,12 @@
 <h2 id="putting-it-all-together">Putting it all together</h2>
 <p>Combining this with the rest of my configuration options gives the following section of my <code>.vimrc</code> file:</p>
 <pre><code class="lang-vim">func! WordProcessorMode()
-    <span class="hljs-string">" Load Markdown syntax highlighting but with custom hashtag support
-</span>    <span class="hljs-keyword">set</span> <span class="hljs-keyword">filetype</span>=mkd
-    syn <span class="hljs-built_in">match</span> htmlBoldItalic <span class="hljs-string">"#[-_a-zA-Z0-9]\+"</span>
+    <span class="hljs-comment">" Load Markdown syntax highlighting but with custom hashtag support</span>
+    <span class="hljs-keyword">set</span> <span class="hljs-keyword">filetype</span>=mkd
+    syn <span class="hljs-keyword">match</span> htmlBoldItalic <span class="hljs-string">"#[-_a-zA-Z0-9]\+"</span>
 
-    <span class="hljs-string">" Other options
-</span>    <span class="hljs-keyword">set</span> nonumber
+    <span class="hljs-comment">" Other options</span>
+    <span class="hljs-keyword">set</span> nonumber
     <span class="hljs-keyword">set</span> wrap
     <span class="hljs-keyword">set</span> linebreak
     <span class="hljs-keyword">set</span> breakat=\ 
@@ -92,17 +92,17 @@
     <span class="hljs-keyword">set</span> spell spelllang=en_gb
     <span class="hljs-keyword">source</span> ~/.<span class="hljs-keyword">vim</span>/abbreviations.<span class="hljs-keyword">vim</span>
 
-    <span class="hljs-string">" Auto-capitalize script
-</span>    <span class="hljs-keyword">augroup</span> SENTENCES
+    <span class="hljs-comment">" Auto-capitalize script</span>
+    <span class="hljs-keyword">augroup</span> SENTENCES
         au!
         <span class="hljs-keyword">autocmd</span> InsertCharPre * <span class="hljs-keyword">if</span> <span class="hljs-built_in">search</span>(<span class="hljs-string">'\v(%^|[.!?]\_s+|\_^\-\s|\_^title\:\s|\n\n)%#'</span>, <span class="hljs-string">'bcnw'</span>) != <span class="hljs-number">0</span> | <span class="hljs-keyword">let</span> <span class="hljs-variable">v:char</span> = <span class="hljs-built_in">toupper</span>(<span class="hljs-variable">v:char</span>) | <span class="hljs-keyword">endif</span>
     <span class="hljs-keyword">augroup</span> END
 endfu
 
-com! WP <span class="hljs-built_in">call</span> WordProcessorMode()
-<span class="hljs-keyword">au</span> BufNewFile,BufRead *.mkd <span class="hljs-built_in">call</span> WordProcessorMode()
-<span class="hljs-keyword">au</span> BufNewFile,BufRead *.md <span class="hljs-built_in">call</span> WordProcessorMode()
-<span class="hljs-keyword">au</span> BufNewFile,BufRead diary-*.txt <span class="hljs-built_in">call</span> WordProcessorMode()
+com! WP <span class="hljs-keyword">call</span> WordProcessorMode()
+<span class="hljs-keyword">au</span> BufNewFile,BufRead *.mkd <span class="hljs-keyword">call</span> WordProcessorMode()
+<span class="hljs-keyword">au</span> BufNewFile,BufRead *.md <span class="hljs-keyword">call</span> WordProcessorMode()
+<span class="hljs-keyword">au</span> BufNewFile,BufRead diary-*.txt <span class="hljs-keyword">call</span> WordProcessorMode()
 </code></pre>
 </div>
 </article>
