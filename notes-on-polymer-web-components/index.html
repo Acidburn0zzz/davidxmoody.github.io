@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Notes on Polymer Web Components</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="[Note: I found this blog post 5 months after I first wrote it. I didn&#x27;t get around to publishing it at the time but decided I&#x27;d rather publish it now...">
+<link rel="canonical" href="https://davidxmoody.com/notes-on-polymer-web-components/">
+<link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+<meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+
+</head>
+
+<body>
+
+<div class="wrapper">
+<header class="site-header">
+<h1><a href="/">David Moody</a></h1>
+<p>A blog about programming</p>
+</header>
+
+<div class="content">
+<article>
+<header>
+<h1>Notes on Polymer Web Components</h1>
+<p><em>Jan 26, 2016</em></p>
+</header>
+<div>
+<p><em>[Note: I found this blog post 5 months after I first wrote it. I didn&#39;t get around to publishing it at the time but decided I&#39;d rather publish it now than delete it.]</em></p>
+<p>These are some of my notes from reading through the <a href="https://www.polymer-project.org/1.0/">Polymer documentation</a>. I was using version 1.2.3 so things may have changed since then.</p>
+<!--more-->
+<h2 id="basic-structure">Basic structure</h2>
+<ul>
+<li>
+<p>The top level element should be <code>&lt;dom-module id=&quot;my-element&quot;&gt;</code> (the <code>id</code> must be the name of the element you are defining).</p>
+</li>
+<li>
+<p>Within the <code>&lt;dom-module&gt;</code> tag, there is a <code>&lt;template&gt;</code> tag which contains: A <code>&lt;style&gt;</code> tag or <code>&lt;link&gt;</code> tag for locally scoped styles and any markup for the element</p>
+</li>
+<li>
+<p>Within the <code>&lt;dom-module&gt;</code> tag, you also have a <code>&lt;script&gt;</code> tag which registers the element with the <code>Polymer()</code> function.</p>
+</li>
+</ul>
+<p>Example of what this looks like:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">dom-module</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"element-name"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+      <span class="hljs-comment">/* CSS rules for your element */</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- local DOM for your element --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{{greeting}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <span class="hljs-comment">&lt;!-- data bindings in local DOM --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-comment">// element registration</span>
+    Polymer({
+      <span class="hljs-keyword">is</span>: <span class="hljs-string">"element-name"</span>,
+
+      <span class="hljs-comment">// add properties and methods on the element's prototype</span>
+
+      properties: {
+        <span class="hljs-comment">// declare properties for the element's public API</span>
+        greeting: {
+          type: String,
+          value: <span class="hljs-string">"Hello!"</span>
+        }
+      }
+    });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">dom-module</span>&gt;</span>
+</code></pre>
+<h2 id="registration">Registration</h2>
+<ul>
+<li>
+<p><strong>Custom element names must always contain a dash.</strong></p>
+</li>
+<li>
+<p>The <code>Polymer()</code> function returns a constructor for the element which can be called directly (although I don&#39;t feel that is particularly useful), alternatively you can use <code>document.createElement(&quot;my-element&quot;)</code>, or you can use a framework or embed them directly in the HTML of the page.</p>
+</li>
+<li>
+<p>You can supposedly &quot;extend&quot; native elements like <code>&lt;input&gt;</code> although I don&#39;t currently know how that works, I guess it just copies all the behaviour of the original element and adds extras. To actually use them, use the original tag with an <code>is</code> attribute: <code>&lt;input is=&quot;my-input&quot;&gt;</code></p>
+</li>
+</ul>
+<h2 id="callbacks">Callbacks</h2>
+<ul>
+<li><code>created</code>: for when an element has been created but nothing has been done with it yet</li>
+<li><code>attached</code>: attached to the DOM</li>
+<li><code>detached</code>: detached from the DOM</li>
+<li><code>attributeChanged</code>: accepts the name of the attribute that was changed on the element, also accepts a &quot;type&quot; although I don&#39;t know what that does, use <code>this.getAttribute(name)</code> to get the new value of the attribute</li>
+</ul>
+<p>The <code>ready</code> callback is unique to Polymer. It is called after the local DOM has been created but before it has been attached to the DOM. Order of callbacks:</p>
+<p><code>created -&gt; children ready -&gt; ready -&gt; attached</code></p>
+<p>Use the <code>hostAttributes</code> property in the Polymer constructor to make an element have attributes when created in HTML. I do not know what the purpose of this is. Maybe you might want to set <code>tabindex</code> on something so that it doesn&#39;t get focus.</p>
+<p><code>Polymer.Class</code> can be used to create a Polymer element but not register it at the same time. Not sure why this would be useful.</p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li>
+<p>Use the <code>properties</code> object in the Polymer constructor when you want to provide the ability for the user to pass down custom properties.</p>
+</li>
+<li>
+<p>Each key of the <code>properties</code> object is an object with the key being the name, a <code>type</code> property (e.g. <code>String</code>), a <code>value</code> default value. </p>
+</li>
+<li>
+<p>An optional <code>computed: &quot;myFunction(param1, param2)&quot;</code> property to define computed properties. Is only invoked once all dependant properties are not <code>undefined</code>.</p>
+</li>
+<li>
+<p>Various other options for notifying and data binding control (<code>reflectToAttribute</code>, <code>readOnly</code>, <code>notify</code>, <code>observer</code>).</p>
+</li>
+<li>
+<p>To map an <em>attribute name</em> (i.e. the thing in the HTML source) to a <em>property</em>, there are two ways to convert (these do not feel obvious and may trip me up in the future): <strong>(1)</strong> Attribute <code>firstname</code> or <code>firstName</code> goes to property <code>firstname</code> or <strong>(2)</strong> attribute <code>first-name</code> goes to property <code>firstName</code></p>
+</li>
+<li>
+<p>Shorthand for simple properties which only have a <code>type</code> and nothing else: <code>properties: {foo: String, bar: Boolean}</code></p>
+</li>
+<li>
+<p>Observers can be added to properties by giving their name as a string and get called with the new value and old value.</p>
+</li>
+<li>
+<p>You can also define an array of observers in the top level rather than one for each component. They can depend on multiple properties and nested properties. You can also use a wildcard to listen for multiple nested property changes (e.g. <code>observers: [&#39;userNameChanged(user.name.*)&#39;]</code>).</p>
+</li>
+<li>
+<p>There is also a whole complex &quot;splices&quot; option for listening to changes in arrays.</p>
+</li>
+</ul>
+<h2 id="local-dom">Local DOM</h2>
+<ul>
+<li>
+<p>Local DOM has multiple implementations. Shadow DOM can be used if it is supported, otherwise a custom implementation called &quot;shady DOM&quot; is used. Currently shady DOM is used on all browsers which would explain why I wasn&#39;t able to see a real shadow DOM being used in my tests.</p>
+</li>
+<li>
+<p>Nodes in the local DOM are stored by id in <code>this.$</code>.</p>
+</li>
+<li>
+<p>For finding dynamically created nodes use <code>this.$$(selector)</code>. It returns the <em>first</em> node that matches the selector.</p>
+</li>
+<li>
+<p>The element&#39;s children are its &quot;light DOM&quot;. They can be placed into the template with the <code>&lt;content&gt;</code> tag.</p>
+</li>
+<li>
+<p>Optionally give the content node a select attribute to select on the light DOM content matching that (e.g. <code>&lt;content select=&quot;h3&quot;&gt;&lt;/content&gt;</code>).</p>
+</li>
+<li>
+<p>There are a whole bunch of functions for accessing the DOM found on <code>Polymer.dom(parent)</code>.</p>
+</li>
+<li>
+<p><code>this.root</code> is the root of the local DOM tree. Example: <code>var toLocal = document.createElement(&#39;div&#39;); Polymer.dom(this.root).appendChild(toLocal);</code></p>
+</li>
+<li>
+<p>There are methods for accessing &quot;distributed children&quot; and &quot;effective children&quot; when you select different parts of your content.</p>
+</li>
+</ul>
+</div>
+</article>
+</div>
+
+<div class="push"></div>
+</div>
+
+<footer class="site-footer">
+<br>
+<p>
+<a href="/feed.xml">RSS</a> |
+<a href="https://github.com/davidxmoody">GitHub</a> |
+<a href="mailto:david@davidxmoody.com">Email</a>
+</p>
+<p>
+This blog is available under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
+</p>
+</footer>
+
+<script>
+(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+								(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+								m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-54505873-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+
+</html>
