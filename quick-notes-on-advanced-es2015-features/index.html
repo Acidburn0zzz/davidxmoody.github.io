@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Quick notes on advanced ES2015 features</title>
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="[Note: I found this blog post 5 months after I first wrote it. It is not finished to the standard that I originally planned but I decided I&#x27;d still...">
-<link rel="canonical" href="https://davidxmoody.com/quick-notes-on-advanced-es2015-features/">
-<link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
-<meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quick notes on advanced ES2015 features</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="[Note: I found this blog post 5 months after I first wrote it. It is not finished to the standard that I originally planned but I decided I&#x27;d still...">
+  <link rel="canonical" href="https://davidxmoody.com/quick-notes-on-advanced-es2015-features/">
+  <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+  <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
 
 </head>
-
 <body>
 
-<div class="wrapper">
-<header class="site-header">
-<h1><a href="/">David Moody</a></h1>
-<p>A blog about programming</p>
-</header>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1><a href="/">David Moody</a></h1>
+      <p>A blog about programming</p>
+    </header>
 
-<div class="content">
-<article>
-<header>
-<h1>Quick notes on advanced ES2015 features</h1>
-<p><em>Jan 7, 2016</em></p>
-</header>
-<div>
-<p><em>[Note: I found this blog post 5 months after I first wrote it. It is not finished to the standard that I originally planned but I decided I&#39;d still rather publish it now than delete it.]</em></p>
+    <div class="content">
+      <article><header><h1>Quick notes on advanced ES2015 features</h1><p><em>Jan 7, 2016</em></p></header><div><p><em>[Note: I found this blog post 5 months after I first wrote it. It is not finished to the standard that I originally planned but I decided I&#39;d still rather publish it now than delete it.]</em></p>
 <p>I first started programming JavaScript with vanilla ES5. I disliked it right from the start having grown accustomed to the nice syntax of Python and ended up switching to CoffeeScript for quite a while. However, around June of last year, I got interested in ES6/ES2015 again.</p>
 <p>These are some of my notes from reading <a href="https://leanpub.com/understandinges6/read/">this book</a> on ES6 features. I deliberately didn&#39;t write about anything I already found trivial, deciding to only focus on things I didn&#39;t already know. I never got to the end of the book but still decided to publish it.</p>
 <!--more-->
@@ -43,18 +35,14 @@
 <li><code>Number.isFinite()</code> and <code>Number.isNaN()</code> (not the same as the globally scoped versions because they don&#39;t accept strings</li>
 <li><code>Number.isSafeInteger()</code> to check if a number is within the range where integer rounding errors won&#39;t occur</li>
 <li>New Math methods: hypot, log2, log10, sign, trunc</li>
-<li>
-<p><code>Object.is()</code> for a better version of <code>===</code></p>
+<li><p><code>Object.is()</code> for a better version of <code>===</code></p>
 </li>
-<li>
-<p>Default arguments used when argument is not passed OR is passed as undefined (BUT NOT null)</p>
+<li><p>Default arguments used when argument is not passed OR is passed as undefined (BUT NOT null)</p>
 </li>
 <li>Default arguments are re-evaluated on each invocation (which is DIFFERENT to how Python does it)</li>
-<li>
-<p>Default arguments for destructuring parameters <code>function setCookie(name, value, { secure, path, domain, expires } = {}) {</code></p>
+<li><p>Default arguments for destructuring parameters <code>function setCookie(name, value, { secure, path, domain, expires } = {}) {</code></p>
 </li>
-<li>
-<p>All functions have a &quot;name&quot; property</p>
+<li><p>All functions have a &quot;name&quot; property</p>
 </li>
 </ul>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params"></span>) </span>{}
@@ -81,44 +69,36 @@
 <li>The first value passed to <code>next()</code> is ignored because the generator is just starting out</li>
 <li>Subsequent values passed to <code>next()</code> are substituted to the value of <code>yield something</code></li>
 </ul>
-</div>
-</article>
-</div>
+</div></article>
+    </div>
+    
+    <div class="push"></div>
+  </div>
 
-<div class="push"></div>
-</div>
-
-<footer class="site-footer">
-<br>
-<p>
-<a href="/feed.xml">RSS</a> |
-<a href="https://github.com/davidxmoody">GitHub</a> |
-<a href="mailto:david@davidxmoody.com">Email</a>
-</p>
-<p>
-This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <footer class="site-footer">
+    <br>
+    <p>
+      <a href="/feed.xml">RSS</a> | 
+      <a href="https://github.com/davidxmoody">GitHub</a> | 
+      <a href="mailto:david@davidxmoody.com">Email</a>
+    </p>
+    <p>
+      This blog is available under a 
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
         Creative Commons License
       </a>
-</p>
-</footer>
+    </p>
+  </footer>
 
-<script>
-(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function() {
-								(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-								m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-54505873-1', 'auto');
-ga('send', 'pageview');
-</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54505873-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </body>
-
 </html>

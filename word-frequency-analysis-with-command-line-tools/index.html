@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Word frequency analysis with command line tools</title>
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="I have previously written about writing speeds. I think one of the best ways to improve is to utilise abbreviations and other tricks. I recently looked...">
-<link rel="canonical" href="https://davidxmoody.com/word-frequency-analysis-with-command-line-tools/">
-<link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
-<meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Word frequency analysis with command line tools</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="I have previously written about writing speeds. I think one of the best ways to improve is to utilise abbreviations and other tricks. I recently looked...">
+  <link rel="canonical" href="https://davidxmoody.com/word-frequency-analysis-with-command-line-tools/">
+  <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+  <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
 
 </head>
-
 <body>
 
-<div class="wrapper">
-<header class="site-header">
-<h1><a href="/">David Moody</a></h1>
-<p>A blog about programming</p>
-</header>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1><a href="/">David Moody</a></h1>
+      <p>A blog about programming</p>
+    </header>
 
-<div class="content">
-<article>
-<header>
-<h1>Word frequency analysis with command line tools</h1>
-<p><em>Feb 20, 2015</em></p>
-</header>
-<div>
-<p>I have previously written about <a href="/writing-speeds/">writing speeds</a>. I think one of the best ways to improve is to utilise <a href="/better-vim-abbreviations/">abbreviations</a> and other <a href="/vim-auto-capitalisation/">tricks</a>. </p>
+    <div class="content">
+      <article><header><h1>Word frequency analysis with command line tools</h1><p><em>Feb 20, 2015</em></p></header><div><p>I have previously written about <a href="/writing-speeds/">writing speeds</a>. I think one of the best ways to improve is to utilise <a href="/better-vim-abbreviations/">abbreviations</a> and other <a href="/vim-auto-capitalisation/">tricks</a>. </p>
 <p>I recently looked into a shorthand system called <a href="http://www.easyscript.com/">EasyScript</a>. The most important part I took from it is to develop a set of short abbreviations for the most common words. They give a set of suggested abbreviations but I wasn&#39;t happy with them. Instead, I wanted to analyse my own writing to find my most commonly used words and phrases. </p>
 <!--more-->
 <h2 id="a-simple-python-script">A simple Python script</h2>
@@ -100,8 +92,7 @@ word_tallies = Counter()
    8967 is
    8535 be
    8226 but
-</code></pre>
-<p>Not many surprises given how common all of these words are. Still, there are significant time savings to be had. I have slowly been training myself to type with certain abbreviations over the past few months. For example <code>&quot;t&quot; -&gt; &quot;to&quot;</code>, <code>&quot;h&quot; -&gt; &quot;the&quot;</code> and <code>&quot;d&quot; -&gt; &quot;and&quot;</code>. Similarly for most of the words in that list. </p>
+</code></pre><p>Not many surprises given how common all of these words are. Still, there are significant time savings to be had. I have slowly been training myself to type with certain abbreviations over the past few months. For example <code>&quot;t&quot; -&gt; &quot;to&quot;</code>, <code>&quot;h&quot; -&gt; &quot;the&quot;</code> and <code>&quot;d&quot; -&gt; &quot;and&quot;</code>. Similarly for most of the words in that list. </p>
 <p>There are a total of 5,854,003 characters in my diary. By calculating the number of keystrokes saved per abbreviation and multiplying by the number of times that word appears in my diary, I estimate that I could have saved 559,440 characters with my above abbreviations alone. </p>
 <p>That&#39;s <strong>10%</strong> of my total keystrokes. Combined with other abbreviations and typing tricks, I think I could save 20-30% of all keystrokes. </p>
 <p>Personally, I think a 20% saving is <em>easily</em> worth the time and effort it takes to learn. I expect to be typing for my entire adult life. If I type 300,000 words a year for the next 50 years (conservative estimate) then I could save myself 16,000,000 total keystrokes over my entire lifetime. That&#39;s equivalent to about 60,000 minutes saved or 1,000 hours.</p>
@@ -117,8 +108,7 @@ word_tallies = Counter()
    3391 it was
    3388 of the
    3364 in the
-</code></pre>
-<p>And trigrams:</p>
+</code></pre><p>And trigrams:</p>
 <pre><code>   2305 i think i
    1483 i want to
    1474 i&#39;m going to
@@ -129,44 +119,36 @@ word_tallies = Counter()
     724 for a walk
     709 i don&#39;t think
     682 i think the
-</code></pre></div>
-</article>
-</div>
+</code></pre></div></article>
+    </div>
+    
+    <div class="push"></div>
+  </div>
 
-<div class="push"></div>
-</div>
-
-<footer class="site-footer">
-<br>
-<p>
-<a href="/feed.xml">RSS</a> |
-<a href="https://github.com/davidxmoody">GitHub</a> |
-<a href="mailto:david@davidxmoody.com">Email</a>
-</p>
-<p>
-This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <footer class="site-footer">
+    <br>
+    <p>
+      <a href="/feed.xml">RSS</a> | 
+      <a href="https://github.com/davidxmoody">GitHub</a> | 
+      <a href="mailto:david@davidxmoody.com">Email</a>
+    </p>
+    <p>
+      This blog is available under a 
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
         Creative Commons License
       </a>
-</p>
-</footer>
+    </p>
+  </footer>
 
-<script>
-(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function() {
-								(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-								m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-54505873-1', 'auto');
-ga('send', 'pageview');
-</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54505873-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </body>
-
 </html>

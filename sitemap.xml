@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url> <loc>https://davidxmoody.com/cv/</loc> </url>
 <url> <loc>https://davidxmoody.com/hello-world/</loc> </url>
-<url> <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc> </url>
-<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> </url>
 <url> <loc>https://davidxmoody.com/wordsearch-game/</loc> </url>
+<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> </url>
+<url> <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc> </url>
 <url> <loc>https://davidxmoody.com/namecheap-github-pages-and-apex-domains/</loc> </url>
 <url> <loc>https://davidxmoody.com/a-third-attempt-at-anki/</loc> </url>
 <url> <loc>https://davidxmoody.com/my-password-generation-scheme/</loc> </url>

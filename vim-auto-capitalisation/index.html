@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Vim auto-capitalisation</title>
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="Continuing in the same theme as my last post, I am going to write about another awesome Vim tip I found recently. That is: automatic capitalisation of...">
-<link rel="canonical" href="https://davidxmoody.com/vim-auto-capitalisation/">
-<link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
-<meta name="wot-verification" content="fdff4a26070b9df2fd1a" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vim auto-capitalisation</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Continuing in the same theme as my last post, I am going to write about another awesome Vim tip I found recently. That is: automatic capitalisation of...">
+  <link rel="canonical" href="https://davidxmoody.com/vim-auto-capitalisation/">
+  <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+  <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
 
 </head>
-
 <body>
 
-<div class="wrapper">
-<header class="site-header">
-<h1><a href="/">David Moody</a></h1>
-<p>A blog about programming</p>
-</header>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1><a href="/">David Moody</a></h1>
+      <p>A blog about programming</p>
+    </header>
 
-<div class="content">
-<article>
-<header>
-<h1>Vim auto-capitalisation</h1>
-<p><em>Aug 29, 2014</em></p>
-</header>
-<div>
-<p>Continuing in the same theme as my <a href="/better-vim-abbreviations/">last post</a>, I am going to write about another awesome Vim tip I found recently. That is: automatic capitalisation of the first letter of each sentence. </p>
+    <div class="content">
+      <article><header><h1>Vim auto-capitalisation</h1><p><em>Aug 29, 2014</em></p></header><div><p>Continuing in the same theme as my <a href="/better-vim-abbreviations/">last post</a>, I am going to write about another awesome Vim tip I found recently. That is: automatic capitalisation of the first letter of each sentence. </p>
 <p>Many word processors already include this. For some reason, Vim and other text editors don&#39;t usually have the option. I don&#39;t know why. I feel that a lot of unnecessary key-strokes are wasted on the shift keys. It also stresses the little fingers and twists the wrists.</p>
 <!--more-->
 <h2 id="the-scripts">The scripts</h2>
@@ -104,44 +96,36 @@ com! WP <span class="hljs-keyword">call</span> WordProcessorMode()
 <span class="hljs-keyword">au</span> BufNewFile,BufRead *.md <span class="hljs-keyword">call</span> WordProcessorMode()
 <span class="hljs-keyword">au</span> BufNewFile,BufRead diary-*.txt <span class="hljs-keyword">call</span> WordProcessorMode()
 </code></pre>
-</div>
-</article>
-</div>
+</div></article>
+    </div>
+    
+    <div class="push"></div>
+  </div>
 
-<div class="push"></div>
-</div>
-
-<footer class="site-footer">
-<br>
-<p>
-<a href="/feed.xml">RSS</a> |
-<a href="https://github.com/davidxmoody">GitHub</a> |
-<a href="mailto:david@davidxmoody.com">Email</a>
-</p>
-<p>
-This blog is available under a
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <footer class="site-footer">
+    <br>
+    <p>
+      <a href="/feed.xml">RSS</a> | 
+      <a href="https://github.com/davidxmoody">GitHub</a> | 
+      <a href="mailto:david@davidxmoody.com">Email</a>
+    </p>
+    <p>
+      This blog is available under a 
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
         Creative Commons License
       </a>
-</p>
-</footer>
+    </p>
+  </footer>
 
-<script>
-(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function() {
-								(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-								m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-ga('create', 'UA-54505873-1', 'auto');
-ga('send', 'pageview');
-</script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54505873-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </body>
-
 </html>
