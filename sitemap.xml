@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url> <loc>https://davidxmoody.com/cv/</loc> </url>
 <url> <loc>https://davidxmoody.com/hello-world/</loc> </url>
-<url> <loc>https://davidxmoody.com/wordsearch-game/</loc> </url>
-<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> </url>
 <url> <loc>https://davidxmoody.com/creating-a-style-for-this-blog/</loc> </url>
+<url> <loc>https://davidxmoody.com/paragraph-counts-in-jekyll/</loc> </url>
+<url> <loc>https://davidxmoody.com/wordsearch-game/</loc> </url>
 <url> <loc>https://davidxmoody.com/namecheap-github-pages-and-apex-domains/</loc> </url>
 <url> <loc>https://davidxmoody.com/a-third-attempt-at-anki/</loc> </url>
 <url> <loc>https://davidxmoody.com/my-password-generation-scheme/</loc> </url>
@@ -41,11 +41,11 @@
 <url> <loc>https://davidxmoody.com/google-content-experiments-for-static-sites/</loc> </url>
 <url> <loc>https://davidxmoody.com/quick-notes-on-advanced-es2015-features/</loc> </url>
 <url> <loc>https://davidxmoody.com/notes-on-polymer-web-components/</loc> </url>
-<url> <loc>https://davidxmoody.com/blinkist-book-review-the-miracle-morning/</loc> </url>
-<url> <loc>https://davidxmoody.com/blinkist-book-review-the-five-dysfunctions-of-a-team/</loc> </url>
-<url> <loc>https://davidxmoody.com/blinkist-book-review-influence/</loc> </url>
-<url> <loc>https://davidxmoody.com/blinkist-book-review-you-can-negotiate-anything/</loc> </url>
-<url> <loc>https://davidxmoody.com/blinkist-book-review-a-guide-to-the-good-life/</loc> </url>
+<url> <loc>https://davidxmoody.com/book-notes-the-miracle-morning/</loc> </url>
+<url> <loc>https://davidxmoody.com/book-notes-the-five-dysfunctions-of-a-team/</loc> </url>
+<url> <loc>https://davidxmoody.com/book-notes-influence/</loc> </url>
+<url> <loc>https://davidxmoody.com/book-notes-you-can-negotiate-anything/</loc> </url>
+<url> <loc>https://davidxmoody.com/book-notes-a-guide-to-the-good-life/</loc> </url>
 <url> <loc>https://davidxmoody.com/</loc> </url>
 <url> <loc>https://davidxmoody.com/page2/</loc> </url>
 <url> <loc>https://davidxmoody.com/page3/</loc> </url>
