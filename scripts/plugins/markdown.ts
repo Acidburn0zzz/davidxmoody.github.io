@@ -10,7 +10,7 @@ const markedOptions = {
   },
 }
 
-module.exports = () => files => {
+export default () => files => {
   for (const filename in files) {
     if (markdownRegex.test(filename)) {
       const file = files[filename]

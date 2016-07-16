@@ -16,7 +16,7 @@ function getReadMoreText(text) {
   return `Read ${remainingCount} remaining paragraphs...`
 }
 
-module.exports = () => (files, metalsmith) => {
+export default () => (files, metalsmith) => {
   for (const file of metalsmith.metadata().posts) {
     const [before, after] = file.contents.toString().split(excerptSeparator, 2)
     const readMoreText = getReadMoreText(after)

@@ -1,6 +1,6 @@
-const gulp = require('gulp')
-const browserSync = require('browser-sync')
-const build = require('./scripts/build')
+import * as gulp from 'gulp'
+import * as browserSync from 'browser-sync'
+import build from './scripts/build'
 
 const paths = {
   src: 'src/**/*',

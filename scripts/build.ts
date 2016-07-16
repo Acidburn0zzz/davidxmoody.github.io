@@ -1,5 +1,5 @@
-const path = require('path')
-const moment = require('moment')
+import {resolve} from 'path'
+import * as moment from 'moment'
 
 const Metalsmith = require('metalsmith')
 const autoprefixer = require('metalsmith-autoprefixer')
@@ -15,8 +15,8 @@ const permalinks = require('metalsmith-permalinks')
 const sass = require('metalsmith-sass')
 const sitemap = require('metalsmith-sitemap')
 
-const excerpts = require('./plugins/excerpts')
-const markdown = require('./plugins/markdown')
+import excerpts from './plugins/excerpts'
+import markdown from './plugins/markdown'
 
 const DEFAULT_OPTIONS = {
   title: "David Moody's Blog",
@@ -29,13 +29,13 @@ const DEFAULT_OPTIONS = {
   production: true,
 }
 
-module.exports = (specifiedOptions = {}, callback) => {
+export default (specifiedOptions = {}, callback) => {
 
-  const options = Object.assign({}, DEFAULT_OPTIONS, specifiedOptions)
+  const options = (<any>Object).assign({}, DEFAULT_OPTIONS, specifiedOptions)
 
   // CONFIG ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  const m = Metalsmith(path.resolve(__dirname, '..'))
+  const m = Metalsmith(resolve(__dirname, '..'))
   m.metadata(options)
 
   // POSTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
