@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Notes on Flow type checking in JavaScript</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Here are some rough notes I made while setting up Flow and reading through the official docs. These notes probably won&#39;t be that useful to anyone...">
+  <link rel="canonical" href="https://davidxmoody.com/notes-on-flow-type-checking-in-javascript/">
+  <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+  <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header class="site-header">
+      <h1><a href="/">David Moody</a></h1>
+      <p>A blog about programming</p>
+    </header>
+
+    <div class="content">
+      
+  <article>
+    <header>
+      <h1>Notes on Flow type checking in JavaScript</h1>
+      <p><em>Jul 22, 2016</em></p>
+    </header>
+
+    <p>Here are some rough notes I made while setting up <a href="https://flowtype.org/">Flow</a> and reading through the <a href="https://flowtype.org/docs/getting-started.html">official docs</a>. These notes probably won&#39;t be that useful to anyone but me.</p>
+<!--more-->
+<h2 id="vim-setup-with-syntastic-and-eslint">Vim setup with Syntastic and eslint</h2>
+<p>This was very tricky to get working well. I wanted a solution which would still work with <code>eslint_d</code> and be fast (i.e. run as a background server). After a lot of struggle, I settled on the following configuration:</p>
+<pre><code>Plug &#39;scrooloose/syntastic&#39;
+let g:syntastic_javascript_checkers = [&#39;eslint&#39;, &#39;flow&#39;]
+let g:syntastic_javascript_eslint_exec = &#39;eslint_d&#39;
+let g:syntastic_javascript_flow_exe = &#39;flow&#39;
+let g:syntastic_aggregate_errors = 1
+</code></pre><p>I also had to restart the <code>eslint_d</code> server in the directory with the <code>.eslintrc</code> config file.</p>
+<h2 id="notes-on-type-checking-syntax">Notes on type checking syntax</h2>
+<ul>
+<li>Primitive types: <code>[&quot;boolean&quot;, &quot;number&quot;, &quot;string&quot;, &quot;null&quot;, &quot;void&quot;]</code></li>
+<li><code>any</code> type to opt out of type checking</li>
+<li>Arrays with either <code>number[]</code> or <code>Array&lt;string&gt;</code></li>
+<li>Tuples for finite length arrays (because JavaScript doesn&#39;t have actual tuples) <code>const tuple: [string, number, boolean] = [&quot;foo&quot;, 0, true]</code></li>
+<li>One of many possible types with <code>string|number|boolean</code></li>
+<li>Object: <code>const object: {foo: string, bar: number} = {foo: &quot;foo&quot;, bar: 0}</code></li>
+<li>Objects can also be used as lookup tables (i.e. variable keys) <code>const coolRating: {[id:string]: number} = {}</code></li>
+<li><code>Object</code> type like <code>any</code> but must be an object, accessing any key will return a value with the <code>any</code> type</li>
+<li>For a function that also has other properties, there is a special type: <code>{ (x: number): string; foo: number }</code></li>
+<li>Functions: <code>function foo(a: number, b: number): number { return 4 }</code></li>
+<li>Arrow functions: <code>(num: number): number =&gt; num * 2</code></li>
+<li>Promise type: <code>Promise&lt;string&gt;</code></li>
+<li>Async functions supported and have Promise return types</li>
+<li><code>Function</code> type (similar to <code>Object</code> type) can be called with anything and return type <code>any</code></li>
+<li>Defining a class also defines a type with the same name</li>
+<li>Classes are compatible if one extends the other</li>
+<li>Nominal typing means two types are compatible only if there is explicit inheritance, this is unlike structural/duck typing where compatibility is determined based on the shape of the data</li>
+<li>Interfaces are a way to describe similar classes without needing explicit inheritance <code>interface Fooable { foo(): string; }</code></li>
+<li><code>Class&lt;SomeClass&gt;</code> for the type of <code>SomeClass</code> (for if you need to assign a class to a variable or something)</li>
+<li>Can define type aliases for complex types reused in many places <code>type MyType = { foo: string, bar: number, baz: (foo: string) =&gt; boolean; }</code></li>
+<li>Type aliases can accept another type to become generic types: <code>type GenericObject&lt;T&gt; = { foo: T };</code></li>
+<li>Type parameters for classes specified after the class name and for functions after the function name in angled brackets</li>
+<li>Arrow functions accept type parameters before the first brackets: <code>const flip = &lt;A,B&gt;([a,b]: [A,B]): [B,A] =&gt; [b,a];</code></li>
+</ul>
+<h2 id="built-in-types">Built-in types</h2>
+<ul>
+<li>Type casting by putting in brackets: <code>(myVar: string)</code></li>
+<li>Implicit type casting by adding to a string is an exception that is allowed because it is so common in JavaScript: <code>((100 + &quot;%&quot;) : string);</code></li>
+<li><code>(null: null)</code> and <code>(undefined: void)</code></li>
+<li>Optional parameters and object properties with question mark: <code>function optFun(foo?: string) { (foo: string|void) }</code> and <code>type optType = { foo?: string }; ({foo: &quot;bar&quot;}: optType); ({}: optType)</code> (null is not allowed though!)</li>
+<li>Defaulted parameters are optional for callers but will always have a value in the function: <code>function default_fun(foo: string = &quot;default foo&quot;) { (foo: string); }; default_fun();</code></li>
+<li>Maybe types have confusingly similar syntax to optional parameters, they include null though: <code>function maybe_fun(foo: ?string) { (foo: string|void|null); }</code></li>
+<li>Special <code>mixed</code> type is very similar to <code>any</code> except that in order to type cast, you need to perform the necessary <code>typeof x === &quot;string&quot;</code> style checks first</li>
+<li>Can have literal types: <code>(&quot;foo&quot;: &quot;foo&quot;)</code> or <code>(true: true)</code> or <code>(1: 1)</code></li>
+<li>Literal types do not work with expressions in most cases (because they could be too dynamic to calculate): <code>(&quot;fo&quot;+&quot;o&quot;: &quot;foo&quot;) // Does not work</code></li>
+<li>However, literal types do actually work with boolean expressions: <code>(!true: false); (true &amp;&amp; false: false); (true || false: true);</code></li>
+<li>Can build up enums <code>type Suit = | &quot;Diamonds&quot; | &quot;Clubs&quot; | &quot;Hearts&quot; | &quot;Spades&quot;;</code></li>
+<li>Weirdly, type definitions can start with a <code>|</code> after the equals sign, I think so that they can be split over multiple lines without looking awkward</li>
+</ul>
+<h2 id="more-notes">More notes</h2>
+<ul>
+<li>Function types can also be defined elsewhere: <code>type TimesTwo = (value: number) =&gt; number;</code></li>
+<li>Import and export types with <code>import type {Foo} from &quot;./foo&quot;</code> and <code>export type Foo = string</code></li>
+<li>Exported classes must annotate everything (while in non-exported classes, it&#39;s okay to use more inference)</li>
+<li>Bounded polymorphism to keep type information but also constrain the allowed input types: <code>function fooGood&lt;T: { x: number }&gt;(obj: T): T { console.log(Math.abs(obj.x)); return obj; }</code></li>
+<li>Can have multiple type parameters: <code>class ReadWriteMap&lt;K, V&gt; { store: { [k:K]: V }; constructor() { this.store = {}; } get(k: K): ?V { return this.store[k]; } put(k: K, v: V): void { this.store[k] = v; } }</code></li>
+<li>Some complex stuff about covariance and contravariance <a href="https://flowtype.org/docs/classes.html#polymorphism-and-type-parameter-variance">link</a>, covariance useful when one type parameter is read only (only appears as output), contravariance useful when one type parameter is only used as input, to use this put a plus before the type param <code>class ReadOnlyMap&lt;K, +V&gt; {}</code> (I think it&#39;s the same syntax for both of them)</li>
+<li>Special <code>this</code> type in classes, can only be used in output positions, might be used in a method that clones itself so that if it is extended then it will return the actual extended type (e.g. if D extends C and C had a method to clone itself then if the clone method had return type of <code>this</code> then calling the clone method on an instance of D will return an instance of D)</li>
+<li>Calling with too many arguments is allowed, a trick to prevent it: <code>function takesOnlyOneNumber(x: number, ...rest: Array&lt;void&gt;) {}; takesOnlyOneNumber(1, 2) // Error</code></li>
+<li>Can overload in declarations: <code>declare function foo(...rest: Array&lt;void&gt;): string; declare function foo(a: number, ...rest: Array&lt;void&gt;): string; declare function foo(a: number, b: number, ...rest: Array&lt;void&gt;): string;</code> (but this is not supported outside the prelude and is generally not a great idea and you should generally use union types where possible)</li>
+<li>To check for not null or undefined, can use <code>myVar == null</code> because <code>undefined == null</code> but <code>undefined !== null</code></li>
+<li>With destructuring, you can skip indices with a double comma: <code>var [a, b, ,c] = arr;</code></li>
+<li>Intersection type requires something to be all of the input types: <code>({a: 1, b: &quot;&quot;}: {a: number} &amp; {b: string})</code></li>
+<li>Can assign a class to the evaluation of <code>typeof</code>, I don&#39;t see how this would be very useful, the example given uses static methods, <code>var b: typeof X = X;</code></li>
+<li>For checking if something is an array, use <code>Array.isArray()</code></li>
+<li>Can import and export types, can also <code>import typeof {jimiguitar as GuitarT} from &quot;./User.js&quot;;</code></li>
+<li>Exports should always have explicit type annotations (both for performance and good practice)</li>
+<li>Can use declarations to state that something has certain types, even if the thing does not exist yet (it will be provided globally at runtime or come from an external module for example) <code>declare var DEBUG: bool;</code></li>
+<li>Mixins exist for declarations but they don&#39;t look like they would be a good idea to actually use</li>
+<li>Declared types can be made visible throughout the project with some special config</li>
+<li>Can declare modules to provide typing for modules with no type information found in them <code>declare module &quot;fancy-pants&quot; { declare var DEBUG: bool; }</code></li>
+<li>Files with a <code>.js.flow</code> extension take precedence over type information in the original js file</li>
+<li>Should pretty much just work with React</li>
+</ul>
+
+  </article>
+
+    </div>
+    
+    <div class="push"></div>
+  </div>
+
+  <footer class="site-footer">
+    <br>
+    <p>
+      <a href="/feed.xml">RSS</a> | 
+      <a href="https://github.com/davidxmoody">GitHub</a> | 
+      <a href="mailto:david@davidxmoody.com">Email</a>
+    </p>
+    <p>
+      This blog is available under a 
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
+    </p>
+  </footer>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54505873-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+
+</body>
+</html>

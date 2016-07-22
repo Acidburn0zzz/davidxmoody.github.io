@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Google Content Experiments for static sites</title>
@@ -10,7 +9,6 @@
   <link rel="canonical" href="https://davidxmoody.com/google-content-experiments-for-static-sites/">
   <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
   <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
-
 </head>
 <body>
 
@@ -21,7 +19,14 @@
     </header>
 
     <div class="content">
-      <article><header><h1>Google Content Experiments for static sites</h1><p><em>Sep 17, 2015</em></p></header><div><p>AB testing poses some unique problems for <em>static websites</em>. In this post, I will describe my particular implementation with <a href="https://developers.google.com/analytics/solutions/experiments">Google Analytics Content Experiments</a> and what I learned along the way.</p>
+      
+  <article>
+    <header>
+      <h1>Google Content Experiments for static sites</h1>
+      <p><em>Sep 17, 2015</em></p>
+    </header>
+
+    <p>AB testing poses some unique problems for <em>static websites</em>. In this post, I will describe my particular implementation with <a href="https://developers.google.com/analytics/solutions/experiments">Google Analytics Content Experiments</a> and what I learned along the way.</p>
 <!--more-->
 <h2 id="why-ga-content-experiments-">Why GA Content Experiments?</h2>
 <p>The biggest draw is <strong>easy integration with Google Analytics</strong>.</p>
@@ -72,7 +77,9 @@
 <p>For my blog in particular, I found that I just wasn&#39;t getting enough traffic to the experimental pages to gather meaningful information. I also <em>don&#39;t trust</em> the way in which Google calculate the &quot;winning variation&quot;. In one of my experiments, the original received just 2 sessions (average session time of 0 minutes) and the variation received 35 sessions (average session time of 1 minute 24 seconds). Google proclaimed the variation to have a &quot;100% chance of outperforming the original&quot;. Obviously complete bullshit. Most experiments aren&#39;t as bad as that though.</p>
 <p>In summary, AB testing <em>can</em> be a very useful tool in the right situations and it <em>can</em> be done effectively on a static website. </p>
 <p>However, it is also <em>not</em> a tool to simply throw blindly at any problem. You have to weigh up the potential benefits against the development costs. If your goals could be better accomplished by spending your resources elsewhere (e.g. fixing known bugs) then you should do that instead.</p>
-</div></article>
+
+  </article>
+
     </div>
     
     <div class="push"></div>
@@ -93,6 +100,7 @@
     </p>
   </footer>
 
+  
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -102,6 +110,7 @@
     ga('create', 'UA-54505873-1', 'auto');
     ga('send', 'pageview');
   </script>
+  
 
 </body>
 </html>
