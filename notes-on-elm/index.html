@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Notes on Elm</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="I recently got interested in the Elm programming language. A little while ago I started reading the PureScript docs and then later started learning...">
+  <link rel="canonical" href="https://davidxmoody.com/notes-on-elm/">
+  <link rel="stylesheet" href="/css/main-a224372f29b28b5918ba7d3053ef3cc9.css">
+  <meta name="wot-verification" content="fdff4a26070b9df2fd1a"/>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header class="site-header">
+      <h1><a href="/">David Moody</a></h1>
+      <p>A blog about programming</p>
+    </header>
+
+    <div class="content">
+      
+  <article>
+    <header>
+      <h1>Notes on Elm</h1>
+      <p><em>Aug 14, 2016</em></p>
+    </header>
+
+    <p>I recently got interested in the Elm programming language. A little while ago I started reading the PureScript docs and then later started learning Haskell. However I&#39;m generally much more focused on frontend development and could never really see myself using either of those languages for much.</p>
+<p>Elm has most of the awesome functional programming features of Haskell. It also has a lot of similarities with Redux and can actually be used to create real-world applications. </p>
+<p>Here are some of my rough notes from reading through the <a href="http://guide.elm-lang.org/">Elm docs</a>. I also implemented most of the examples from the docs, with my own modifications, in <a href="https://github.com/davidxmoody/elm-play">this repo</a>.</p>
+<!--more-->
+<h2 id="basic-syntax">Basic syntax</h2>
+<ul>
+<li>Strings require double quotes</li>
+<li>String concatenation with double plus <code>++</code></li>
+<li>Rounded integer division supported with double slash <code>//</code> (like in Python)</li>
+<li>True and False values need to be capitalised (like in Python)</li>
+<li><code>if cond then value1 else value2</code> (like Python again)</li>
+<li>There is no concept of truthy/falsy values (unlike JavaScript)</li>
+<li>List functions: <code>List.isEmpty</code>, <code>List.length</code>, <code>List.reverse</code>, <code>List.sort</code>, <code>List.map</code></li>
+<li>Tuples with brackets for returning multiple values</li>
+<li>Records like objects, define with equals symbols instead of colons <code>{ x = 3, y = 4 }</code>, access with dot notation <code>point.x</code></li>
+<li>Special dot notation to create a function to access that property of a record (<code>.propName record</code> will be equal to <code>record.propName</code>)</li>
+<li>Can do destructuring on records <code>under70 {age} = age &lt; 70</code></li>
+<li>Can assoc/merge in new properties to an existing record with pipe notation <code>{ bill | name = &quot;Nye&quot; }</code></li>
+<li>In Elm (as opposed to JavaScript) you cannot ask for a prop that does not exist and there is no null or undefined</li>
+<li>Elm&#39;s records support structural typing</li>
+</ul>
+<h2 id="the-elm-architecture">The Elm Architecture</h2>
+<p>Basically identical to Redux:</p>
+<ul>
+<li>Model: State</li>
+<li>View: React view</li>
+<li>Msg: Actions</li>
+<li>Update: Reducer</li>
+</ul>
+<p>The view has type <code>Model -&gt; Html Msg</code> which means that the generated HTML can output <code>Msg</code> values which <em>automatically</em> get fed into the update/model cycle for you (when initialising the app with <code>main = Html.beginnerProgram { model = model, view = view, update = update }</code>)</p>
+<p>HTML is basically generated with constructors named after the elements followed by a list of props then a list of children.</p>
+<h2 id="project-setup">Project setup</h2>
+<pre><code>npm i -g elm
+elm package install
+elm-reactor
+# Then open up http://localhost:8000/ for a pretty neat UI
+</code></pre><h2 id="playing-with-the-counter-example">Playing with the counter example</h2>
+<ul>
+<li>It ran fine</li>
+<li>Easily added a button component</li>
+<li>Adding a class name to a component requires <code>div [ attribute &quot;class&quot; &quot;my-class&quot; ] []</code> with <code>attribute</code> from the <code>Html.Attributes</code> package</li>
+</ul>
+<p><strong>Something I don&#39;t understand:</strong> </p>
+<p>I wrote this function to abstract away the creation of a button style:</p>
+<pre><code class="lang-elm"><span class="hljs-title">buttonStyle</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Attribute</span>
+<span class="hljs-title">buttonStyle</span> model = style [ (<span class="hljs-string">"color"</span>, <span class="hljs-keyword">if</span> model == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> <span class="hljs-string">"red"</span> <span class="hljs-keyword">else</span> <span class="hljs-string">"black"</span>) ]
+</code></pre>
+<p>And elm-reactor kept complaining with the following:</p>
+<pre><code>-- TOO FEW ARGUMENTS ------------------------- Main.elm
+
+Type Html.Attribute has too few arguments.
+
+39| buttonStyle : Model -&gt; Attribute
+                           ^^^^^^^^^
+Expecting 1, but got 0.
+</code></pre><p>Removing the type works fine and loading it up in the repl tells me the type is the following:</p>
+<pre><code>&lt;function&gt; : number -&gt; Html.Attribute a
+</code></pre><p>I don&#39;t currently know what the <code>a</code> argument passed to the <code>Html.Attribute</code> type is doing...</p>
+<p>Edit: After further experimentation, I think that <code>Html.Attribute</code> accepts one argument (to make it a generic type or whatever that&#39;s called in Elm). If that argument starts with a lower-case character then it is a generic type variable. However the actual type that it needs to match with in this case is the <code>Msg</code> type (because the attributes can potentially be handlers which return messages I guess).</p>
+<h2 id="form-example">Form example</h2>
+<ul>
+<li>Not sure what is going on constructing the model with three empty strings (<code>model = Model &quot;&quot; &quot;&quot; &quot;&quot;</code>), putting values in there seems to update the values of the model even though when the HTML renders for the first time, there are no values in the text boxes (not sure if bug or intended behaviour)</li>
+<li><strong>Edit:</strong> Wait, I just realised that it&#39;s because the inputs are never actually being passed a value, they only have an <code>onInput</code> handler which won&#39;t actually control the initial value passed...</li>
+<li>Seems that the &quot;type&quot; HTML input attribute has to be called <code>type&#39;</code> to avoid a naming clash</li>
+<li>Can use <code>let ... in ...</code> syntax for (multiple) temporary variables</li>
+</ul>
+<h2 id="effects">Effects</h2>
+<p>For producing effects, your model should return a tuple of the new model plus an effect command. Use <code>Cmd.none</code> for an empty command.</p>
+<ul>
+<li>Use <code>Random.generate</code> to create a command to generate a random action</li>
+<li>Must also tell it how to create a message: <code>Random.generate NewFace (Random.int 1 6)</code></li>
+</ul>
+<p>Just wrote out the basic dice program from scratch without looking at anything for reference. Seems relatively straightforward. Apparently <code>Sub</code> and <code>Cmd</code> appear to be always available and they both have a <code>.none</code> property to do nothing.</p>
+<p>Difference between <code>type</code> and <code>type alias</code>:</p>
+<ul>
+<li><code>type alias</code> is just an alias for something that already would have been a valid type before (e.g. a specific type of record)</li>
+<li><code>type</code> constructs a new type that did not exist before, it defines a union of new type constructors (which accept any arguments) used to construct something of that type</li>
+</ul>
+<p>Http fetching seems okay, if a tad verbose:</p>
+<ul>
+<li><code>Task.perform FetchFail FetchSucceed (Http.get decodeGifUrl url)</code></li>
+<li>Use <code>Task.perform</code> for something that might fail with two message constructors for each case</li>
+<li>Need to decode the server response JSON using the <code>Json.Decoder</code> stuff which I won&#39;t write about here</li>
+<li>WebSockets seem nice although I&#39;ve never actually used them on the server before anyway</li>
+</ul>
+<h2 id="modularity">Modularity</h2>
+<p>Modules expose stuff at the top of the file:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">module</span> Counter <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Model</span>, <span class="hljs-type">Msg</span>, init, update, view)
+</code></pre>
+<p>In the above example, external code cannot instantiate a value of type <code>Msg</code> because it only has access to the <code>Msg</code> type and not the type constructors that make it up.</p>
+<ul>
+<li><code>App.map Top (Counter.view model.topCounter)</code></li>
+<li>Compose views with <code>App.map</code> to make any messages passed from the <code>Html</code> get preceded by the <code>Top</code> constructor</li>
+</ul>
+<h2 id="more-notes-on-types">More notes on types</h2>
+<ul>
+<li>Function definitions are just shorthand for assigning a lambda expression: <code>half n = n / 2</code> is treated identically to <code>half = \n -&gt; n / 2</code> (the syntax is obviously much more useful when you have multiple arguments)</li>
+<li>You can have <em>type variables</em> <code>type List a = Empty | Node a (List a)</code></li>
+<li>You can have triple quoted strings <code>decodeString user &quot;&quot;&quot;{ &quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: 42 }&quot;&quot;&quot;</code></li>
+</ul>
+<h2 id="how-to-use-in-the-real-world">How to use in the real world</h2>
+<ul>
+<li>Generate full index.html file and let it set everything up for you</li>
+<li>Generate a JavaScript file which sets a global <code>Elm.MyModule</code> variable to have three methods: <code>fullscreen()</code> to take over the body tag, <code>embed(node)</code> to mount on a node and <code>worker()</code> to just run it with no UI</li>
+<li>Could theoretically use with React with the embed method style and React refs to get access to the DOM node to mount on</li>
+</ul>
+<h2 id="ports">Ports</h2>
+<ul>
+<li>Initialise an app with <code>const app = Elm.AppName.fullscreen()</code></li>
+<li>Subscribe to a port with <code>app.ports.check.subscribe(callback)</code></li>
+<li>Send data back through a port with <code>app.ports.suggestions.send(data)</code></li>
+</ul>
+<p>Then create ports with the following syntax:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">port</span> check : String -&gt; Cmd msg
+
+<span class="hljs-keyword">port</span> suggestions : (<span class="hljs-type">List</span> <span class="hljs-type">String</span> -&gt; msg) -&gt; Sub msg
+</code></pre>
+<p>The syntax is a bit weird but the basic idea is that you use the first port and provide it with a string value. This then returns a command and when that command is passed to Elm, it notifies the JavaScript subscriber on that port with that string value. </p>
+<p>The second type of port is given a function that can interpret whatever JavaScript gives it and returns a message. After being given a processing function, it returns a subscription which is passed to Elm and will process anything given on that port and return a message which gets dispatched to the update cycle.</p>
+<p>Most JSON-like values can be transferred and there are various rules to prevent incorrect things getting in (if you try to pass something wrong from JavaScript it will throw an error before even reaching Elm).</p>
+
+  </article>
+
+    </div>
+    
+    <div class="push"></div>
+  </div>
+
+  <footer class="site-footer">
+    <br>
+    <p>
+      <a href="/feed.xml">RSS</a> | 
+      <a href="https://github.com/davidxmoody">GitHub</a> | 
+      <a href="mailto:david@davidxmoody.com">Email</a>
+    </p>
+    <p>
+      This blog is available under a 
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        Creative Commons License
+      </a>
+    </p>
+  </footer>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54505873-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+
+</body>
+</html>
